@@ -1,46 +1,107 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import ContactForm from '../../components/ContactForm'
 
 export const metadata: Metadata = {
-  title: "Contact PrintSoftDrive — Questions & Topic Ideas",
-  description: "Get in touch with PrintSoftDrive. We can't offer live tech support, but we love reader questions, article suggestions, and feedback. Reach us by email or form.",
+  title: 'Contact PrintSoftDrive — Questions & Topic Ideas',
+  description: 'Get in touch with PrintSoftDrive. We love reader questions, article suggestions, and feedback.',
 }
+
+const infoCards = [
+  { icon: '📧', title: 'Email Us',       body: <><a href="mailto:support@printsoftdriver.com" style={{ color: 'var(--primary)', fontWeight: 700 }}>support@printsoftdriver.com</a></> },
+  { icon: '🕒', title: 'Response Time',  body: <>We aim to reply within 2–3 working days.</> },
+  { icon: '🛡️', title: 'Privacy First',  body: <>We never share your details. Your data is safe with us.</> },
+]
+
+const faqItems = [
+  { q: 'Can you fix my PC remotely?',   a: 'No, we are an educational publisher. We provide guides and point you to official sources.' },
+  { q: 'Will you cover my suggestion?', a: 'Very likely! Many of our articles start as reader questions. Tell us what you need.' },
+  { q: 'Is my data safe?',              a: 'Absolutely. We only use your information to reply to your inquiry. See our privacy policy for more.' },
+]
 
 export default function Contact() {
   return (
     <>
-<section className="hero hero-wide theme-teal">
-  <div className="container hero-inner">
-    <span className="eyebrow"><span className="dot"></span>Get in touch</span>
-    <h1>Have a Question or Topic Idea? We&apos;d Love to Hear It.</h1>
-    <p className="hero-lede">PrintSoftDrive is an educational resource — we can&apos;t provide one-to-one technical support — but we genuinely love reader questions, content suggestions, and friendly notes. Drop us a line below.</p>
-    <nav className="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol></nav>
-  </div>
-</section>
-<section className="block"><div className="container"><div className="contact-grid">
-  <form className="contact-form" action="mailto:hello@printsoftdriver.com" method="post" encType="text/plain" aria-label="Contact form">
-    <div className="field"><label htmlFor="name">Your name</label><input id="name" name="name" type="text" autoComplete="name" required /></div>
-    <div className="field"><label htmlFor="email">Email address</label><input id="email" name="email" type="email" autoComplete="email" required /></div>
-    <div className="field"><label htmlFor="topic">What&apos;s this about?</label>
-      <select id="topic" name="topic">
-        <option>A question about a driver topic</option>
-        <option>A suggestion for an article</option>
-        <option>A correction or feedback</option>
-        <option>Something else</option>
-      </select></div>
-    <div className="field"><label htmlFor="message">Your message</label><textarea id="message" name="message" required></textarea></div>
-    <button className="btn btn-primary" type="submit">Send message <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-    <p style={{ fontSize: '.85rem', color: '#666', margin: '14px 0 0' }}>We aim to reply within 2–3 working days. We can&apos;t offer live troubleshooting, but we read every message.</p>
-  </form>
-  <aside className="info-card">
-    <h3>Reach us directly</h3>
-    <div className="info-row"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><small>Email</small><a href="mailto:hello@printsoftdriver.com">hello@printsoftdriver.com</a></div></div>
-    <div className="info-row"><span className="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Response time</small>Within 2–3 working days</div></div>
-  </aside>
-</div></div></section>
-<section className="block tight"><div className="container">
-  <div className="section-head"><div className="section-kicker">Before you write</div><h2>A few quick answers</h2><p>The questions readers send us most.</p></div>
-  <div className="faq"><details><summary>Can you fix my computer remotely?</summary><div className="faq-body"><p>No — we&apos;re an educational publisher, not a repair service. We can point you to the right overview and the right official source, but we can&apos;t access or change your machine.</p></div></details><details><summary>Will you cover a topic I suggest?</summary><div className="faq-body"><p>Quite possibly. Reader questions are where many of our articles come from. Send it over and tell us what&apos;s confusing you.</p></div></details><details><summary>Do you sell or share my contact details?</summary><div className="faq-body"><p>Never. We use what you send only to reply to you. See our Privacy Policy for the full picture.</p></div></details></div>
-</div></section>
+      {/* ── Page Hero ── */}
+      <section className="page-hero">
+        <div className="container">
+          <div className="hero-inner animate-fade-in">
+            <nav className="breadcrumb" aria-label="Breadcrumb">
+              <ol>
+                <li><Link href="/">Home</Link></li>
+                <li aria-current="page">Contact Us</li>
+              </ol>
+            </nav>
+            <span className="section-kicker">Get in Touch</span>
+            <h1>Have a Question or<br /><span style={{ color: 'var(--primary)' }}>Topic Idea?</span></h1>
+            <p className="hero-lede">
+              We love hearing from our readers. Whether you have a question, a suggestion for a new topic, or just want to say hi, drop us a line below.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Form + Info ── */}
+      <section className="block">
+        <div className="container">
+          <div className="split" style={{ alignItems: 'flex-start' }}>
+            <div className="animate-fade-in">
+              <span className="section-kicker">Send a Message</span>
+              <h2 style={{ marginBottom: '8px' }}>We'd Love to Hear<br />From You</h2>
+              <p style={{ marginBottom: '32px' }}>
+                While we can't offer one-to-one technical support, we read every message and use your feedback to improve our guides.
+              </p>
+              <ContactForm />
+            </div>
+
+            <div className="animate-fade-in">
+              <span className="section-kicker">Direct Contact</span>
+              <h2 style={{ marginBottom: '8px' }}>Other Ways<br />to Reach Us</h2>
+              <p style={{ marginBottom: '32px' }}>Prefer a more direct line? Here's how else you can get in touch.</p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {infoCards.map(c => (
+                  <div key={c.title} className="info-card">
+                    <div className="info-card-icon">{c.icon}</div>
+                    <div>
+                      <strong className="info-card-title">{c.title}</strong>
+                      <p style={{ margin: 0, fontSize: '0.94rem' }}>{c.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="contact-note">
+                <strong>Note:</strong> We can't offer live technical support or diagnose individual machines remotely. For hardware fixes, always consult your device manufacturer's official support.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
+        <div className="container">
+          <div className="section-head">
+            <span className="section-kicker">FAQ</span>
+            <h2>Quick Answers</h2>
+            <p>Common questions before reaching out.</p>
+          </div>
+          <div className="grid grid-auto-3">
+            {faqItems.map((item, i) => (
+              <div key={i} className="card">
+                <div className="card-icon" style={{ fontSize: '1.2rem' }}>
+                  {i === 0 ? '💻' : i === 1 ? '📝' : '🔒'}
+                </div>
+                <h3 style={{ fontSize: '1.05rem' }}>{item.q}</h3>
+                <p style={{ margin: 0 }}>{item.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
     </>
   )
 }

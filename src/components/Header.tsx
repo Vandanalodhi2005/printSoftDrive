@@ -1,94 +1,112 @@
-import Link from 'next/link'
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+
+const navLinks = [
+  { name: 'Home',           path: '/' },
+  { name: 'All Drivers',    path: '/drivers/' },
+  { name: 'Knowledge Base', path: '/knowledge/' },
+  { name: 'Blog',           path: '/blog/' },
+  { name: 'About',          path: '/about/' },
+  { name: 'Contact',        path: '/contact/' },
+];
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', fn, { passive: true });
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  useEffect(() => { setMenuOpen(false); }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  const active = (p: string) =>
+    p === '/' ? pathname === '/' : (pathname ?? '').startsWith(p);
+
   return (
     <>
-      {/* Offcanvas Area Start */}
-      <div className="fix-area">
-          <div className="offcanvas__info">
-              <div className="offcanvas__wrapper">
-                  <div className="offcanvas__content">
-                      <div className="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
-                          <div className="offcanvas__logo">
-                              <Link href="/">
-                                  <img src="/logo.png" alt="PrintSoftDrive" style={{maxHeight: '40px'}} />
-                              </Link>
-                          </div>
-                          <div className="offcanvas__close">
-                              <button>
-                                  <i className="fas fa-times"></i>
-                              </button>
-                          </div>
-                      </div>
-                      <p className="text d-none d-xl-block">
-                          Your friendly, plain-English overview of the world of device drivers. We translate the technical so you can spend more time using your computer and less time fighting it.
-                      </p>
-                      <div className="mobile-menu fix mb-3"></div>
-                      <div className="offcanvas__contact">
-                          <h4>Contact Info</h4>
-                          <ul>
-                              <li className="d-flex align-items-center">
-                                  <div className="offcanvas__contact-icon mr-15">
-                                      <i className="fal fa-envelope"></i>
-                                  </div>
-                                  <div className="offcanvas__contact-text">
-                                      <a href="mailto:hello@printsoftdriver.com"><span className="mailto:hello@printsoftdriver.com">hello@printsoftdriver.com</span></a>
-                                  </div>
-                              </li>
-                          </ul>
-                          <Link href="/contact/" className="theme-btn mt-4">
-                              Contact Us
-                              <i className="fa-solid fa-arrow-up-right"></i>
-                          </Link>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div className="offcanvas__overlay"></div>
+      <header className={`hdr${scrolled ? ' hdr--scrolled' : ''}`}>
+        <div className="container hdr__inner">
 
-      {/* Header Section Start */}
-      <header className="header-section">
-          <div id="header-sticky" className="header-1">
-              <div className="container">
-                  <div className="mega-menu-wrapper">
-                      <div className="header-main">
-                          <div className="header-left">
-                              <Link href="/" className="logo">
-                                  <img src="/logo.png" alt="PrintSoftDrive" style={{maxHeight: '50px'}} />
-                              </Link>
-                              <div className="mean__menu-wrapper">
-                                  <div className="main-menu">
-                                      <nav id="mobile-menu">
-                                          <ul>
-                                              <li><Link href="/">Home</Link></li>
-                                              <li><Link href="/drivers/">All Drivers</Link></li>
-                                              <li><Link href="/knowledge/">Knowledge Base</Link></li>
-                                              <li><Link href="/blog/">Blog</Link></li>
-                                              <li><Link href="/about/">About Us</Link></li>
-                                              <li><Link href="/contact/">Contact</Link></li>
-                                          </ul>
-                                      </nav>
-                                  </div>
-                              </div>
-                          </div>
-                          
-                          <div className="header-right d-flex justify-content-end align-items-center">
-                              <Link href="/knowledge/" className="theme-btn">
-                                  Troubleshooting
-                                  <i className="fa-solid fa-arrow-up-right"></i>
-                              </Link>
-                              <div className="header__hamburger d-xl-none my-auto">
-                                  <div className="sidebar__toggle">
-                                      <i className="fa-regular fa-bars"></i>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+          {/* Logo */}
+          <Link href="/" className="hdr__logo">
+            <Image src="/logo.png" alt="PrintSoftDrive" width={190} height={38} priority
+              style={{ height: scrolled ? '28px' : '34px', width: 'auto', transition: 'height .25s ease' }} />
+          </Link>
+
+          {/* Desktop nav */}
+          <nav className="hdr__nav" aria-label="Main">
+            {navLinks.map(l => (
+              <Link key={l.name} href={l.path} className={`hdr__link${active(l.path) ? ' hdr__link--active' : ''}`}>
+                {l.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Right */}
+          <div className="hdr__end">
+            <Link href="/knowledge/" className="hdr__cta btn btn-primary">
+              Fix My Driver
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </Link>
+
+            <button
+              className={`hdr__burger${menuOpen ? ' hdr__burger--open' : ''}`}
+              onClick={() => setMenuOpen(v => !v)}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+            >
+              <span /><span /><span />
+            </button>
           </div>
+        </div>
       </header>
+
+      {/* Backdrop */}
+      <div className={`drawer-bd${menuOpen ? ' drawer-bd--show' : ''}`} onClick={() => setMenuOpen(false)} aria-hidden="true" />
+
+      {/* Mobile drawer */}
+      <aside className={`drawer${menuOpen ? ' drawer--open' : ''}`} aria-label="Mobile navigation">
+        <div className="drawer__head">
+          <Link href="/" className="drawer__logo" onClick={() => setMenuOpen(false)}>
+            <Image src="/logo.png" alt="PrintSoftDrive" width={160} height={32} style={{ height: '28px', width: 'auto' }} />
+          </Link>
+          <button className="drawer__close" onClick={() => setMenuOpen(false)} aria-label="Close">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+        <nav className="drawer__nav">
+          {navLinks.map(l => (
+            <Link key={l.name} href={l.path} className={`drawer__link${active(l.path) ? ' drawer__link--active' : ''}`}>
+              <span>{l.name}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </Link>
+          ))}
+        </nav>
+
+        <div className="drawer__foot">
+          <Link href="/knowledge/" className="btn btn-primary drawer__cta" onClick={() => setMenuOpen(false)}>
+            Fix My Driver
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </Link>
+          <p className="drawer__note">Independent · No downloads · No jargon</p>
+        </div>
+      </aside>
+
+      <div className="hdr__spacer" />
     </>
-  )
+  );
 }

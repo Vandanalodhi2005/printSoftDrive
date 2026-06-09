@@ -1,157 +1,278 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'PrintSoftDrive — Device Drivers Explained in Plain English',
+  description: 'PrintSoftDrive explains printer, scanner, graphics, audio, Wi-Fi, Bluetooth, and USB drivers in plain English, with calm fixes for common problems.',
+}
+
+const drivers = [
+  { id: 'printer',   name: 'Printer Drivers',   desc: 'From the print spooler to the final page — keeping your printing flow seamless.',        icon: '🖨️' },
+  { id: 'scanner',   name: 'Scanner Drivers',   desc: 'How your scanner talks to imaging apps — and why it sometimes stops.',                    icon: '📄' },
+  { id: 'graphics',  name: 'Graphics Drivers',  desc: 'The bridge between your GPU and every pixel on your screen.',                             icon: '🖥️' },
+  { id: 'audio',     name: 'Audio Drivers',     desc: 'Sample-accurate communication for every sound your system makes.',                        icon: '🔊' },
+  { id: 'network',   name: 'Network Drivers',   desc: 'The invisible cable connecting your computer to the digital world.',                      icon: '📡' },
+  { id: 'bluetooth', name: 'Bluetooth Drivers', desc: 'Pairing, discovery, and the stack that makes wireless work.',                             icon: '📶' },
+  { id: 'usb',       name: 'USB Drivers',       desc: 'The universal translator for all your plug-and-play devices.',                            icon: '🔌' },
+]
+
+const features = [
+  { title: 'Plain English Guides',     desc: 'No jargon. Just clear explanations of how your devices communicate.' },
+  { title: 'Calm Troubleshooting',     desc: 'Step-by-step solutions for common driver-related headaches.' },
+  { title: 'Independent & Trusted',    desc: 'We provide knowledge, not downloads. Fully independent education.' },
+]
+
+const faqs = [
+  {
+    q: 'Do you provide driver downloads?',
+    a: 'No. We are an educational site only. The safest source for any driver is always your hardware manufacturer\'s official support page or your operating system\'s built-in update tool. We explain what to look for, never host files.',
+  },
+  {
+    q: 'Is this site affiliated with any hardware or OS company?',
+    a: 'No. PrintSoftDrive is fully independent, with no sponsorship or endorsement from any vendor, which is exactly why we can stay neutral and plain-spoken.',
+  },
+  {
+    q: 'Where should I start?',
+    a: 'If something is broken, head to the Knowledge hub and try the universal fixes first. If you\'re just curious, pick the driver family that matches your hardware and read the overview.',
+  },
+]
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
+      {/* ══════════════════════════════════════════
+          HERO
+      ══════════════════════════════════════════ */}
       <section className="home-hero">
-        <div className="home-hero-bg"></div>
         <div className="container">
-          <div className="home-hero-inner">
-            <div className="eyebrow"><span className="dot"></span>Device Driver Education</div>
+          <div className="home-hero-inner animate-fade-in">
+            <div className="hero-badge">
+              <span className="hero-badge-dot">✓</span>
+              Trusted Driver Knowledge Base
+            </div>
+
             <h1 className="home-hero-title">
-              <span className="home-hero-sub">PRINT SOFT</span>
-              DRIVE
+              Printer Drivers,<br />
+              <span className="gradient-text">Explained Clearly.</span>
             </h1>
+
             <p className="home-hero-desc">
-              Every screen you see, sound you hear, and file you save passes through a driver first.
-              We explain the whole quiet system in language anyone can follow.
+              Learn how printer drivers work, troubleshoot issues, and find practical 
+              solutions explained in simple language.
             </p>
+
             <div className="hero-actions">
               <Link href="/drivers/" className="btn btn-primary">
-                Browse All Drivers
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                Explore Drivers
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
               </Link>
-              <Link href="/knowledge/" className="btn btn-light">
-                Troubleshooting Hub
+              <Link href="/knowledge/" className="btn btn-outline">
+                Learn More
               </Link>
             </div>
           </div>
         </div>
-        <div className="home-hero-orb home-hero-orb-1"></div>
-        <div className="home-hero-orb home-hero-orb-2"></div>
+
+        {/* decorative rings */}
+        <div className="hero-rings" aria-hidden="true">
+          <div className="ring ring-1" />
+          <div className="ring ring-2" />
+          <div className="ring ring-3" />
+        </div>
       </section>
 
-
-
-      {/* About */}
-      <section className="block">
+      {/* ══════════════════════════════════════════
+          STATS BAR
+      ══════════════════════════════════════════ */}
+      <section style={{ background: 'var(--bg-light)', borderBottom: '1px solid var(--border)' }}>
         <div className="container">
-          <div className="split">
-            <div>
-              <div className="section-kicker" style={{ textAlign: 'left' }}>Why a driver matters</div>
-              <h2 style={{ fontSize: 'clamp(1.8rem,3vw,2.4rem)', fontWeight: 800, color: '#000D44', margin: '0 0 16px' }}>A translator between two worlds</h2>
-              <p style={{ color: '#555', lineHeight: 1.75, marginBottom: 16 }}>
-                Your applications speak in general terms — "play this sound," "draw this window," "send this file." Your hardware only understands very specific electrical instructions. A driver sits in the middle and translates, in real time, both directions.
-              </p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 12, marginBottom: 24 }}>
-                <div className="home-feat"><span className="home-feat-dot"></span><span>Clear overviews of what each driver type actually does</span></div>
-                <div className="home-feat"><span className="home-feat-dot"></span><span>Calm, ordered fixes for the most common symptoms</span></div>
-                <div className="home-feat"><span className="home-feat-dot"></span><span>No downloads, no sponsorships, fully independent</span></div>
-              </div>
-              <p style={{ color: '#666', lineHeight: 1.7, marginBottom: 24, fontSize: '.95rem' }}>
-                When that translation is healthy you never think about it. When it slips, you get the stutters, silences, and dropped connections.
-              </p>
-              <Link href="/knowledge/" className="btn btn-primary">
-                Troubleshooting Hub
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </Link>
+          <div className="stats-bar" style={{ borderRadius: 0, border: 'none', background: 'transparent' }}>
+            <div className="stat-item">
+              <div className="stat-number">500+</div>
+              <div className="stat-label">Driver Guides</div>
             </div>
-            <div>
-              <div className="home-visual-grid">
-                <div className="home-visual-card home-visual-blue">
-                  <div className="home-visual-icon">🖨️</div>
-                  <div>Printer Drivers</div>
-                </div>
-                <div className="home-visual-card home-visual-orange">
-                  <div className="home-visual-icon">🖥️</div>
-                  <div>Graphics Drivers</div>
-                </div>
-                <div className="home-visual-card home-visual-teal">
-                  <div className="home-visual-icon">🔊</div>
-                  <div>Audio Drivers</div>
-                </div>
-                <div className="home-visual-card home-visual-dark">
-                  <div className="home-visual-icon">📡</div>
-                  <div>Wi-Fi Drivers</div>
-                </div>
-              </div>
+            <div className="stat-item">
+              <div className="stat-number">100+</div>
+              <div className="stat-label">Printer Models</div>
+            </div>
+            <div className="stat-item">
+              <div className="stat-number">24/7</div>
+              <div className="stat-label">Knowledge Access</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Driver Cards */}
-      <section className="block" style={{ background: '#f5f7fa' }}>
+      {/* ══════════════════════════════════════════
+          KNOWLEDGE CENTER PROMO
+      ══════════════════════════════════════════ */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
+        <div className="container">
+          <div className="kc-grid">
+            <div className="kc-text">
+              <span className="kicker"><span className="kicker-dot" />Driver Knowledge Center</span>
+              <h2>Guides &amp; Troubleshooting</h2>
+              <p>From printer setup to advanced driver diagnostics — everything in one calm, organised hub.</p>
+              <ul className="kc-chips">
+                {['Printer Setup Guides', 'Driver Installation Help', 'Error Fix Tutorials', 'Compatibility Resources'].map(t => (
+                  <li key={t} className="kc-chip">{t}</li>
+                ))}
+              </ul>
+              <div className="kc-stat">
+                <span className="kc-stat-num">1000+</span>
+                <span className="kc-stat-lbl">Monthly Readers</span>
+              </div>
+            </div>
+            <div className="kc-visual">
+              <Image
+                src="/assets/images/knowledge-flow.svg"
+                alt="Knowledge centre illustration"
+                width={560}
+                height={460}
+                style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          DRIVER CATEGORIES
+      ══════════════════════════════════════════ */}
+      <section className="block">
         <div className="container">
           <div className="section-head">
-            <div className="section-kicker">What we cover</div>
-            <h2>Seven driver families, one calm explanation each</h2>
-            <p>Choose a category for a plain-English overview of what the driver does and how to keep it healthy.</p>
+            <span className="section-kicker">What We Cover</span>
+            <h2>Explore Driver Categories</h2>
+            <p>
+              Learn, troubleshoot and understand every major driver category through simple,
+              practical explanations.
+            </p>
           </div>
-          <div className="grid grid-3">
-            <Link className="card" href="/drivers/printer/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 8V4h10v4M7 16H4a1 1 0 0 1-1-1v-5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5a1 1 0 0 1-1 1h-3"/><rect x="7" y="13" width="10" height="7" rx="1"/><path d="M17 11h.5"/></svg></span>
-              <h3>Printer Drivers</h3>
-              <p>From a click to a printed page: the spooler, the page language, and the cure for 'offline'.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
-            <Link className="card" href="/drivers/scanner/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 14h16M3 18a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M6 14l8-9 5 5-3 4"/></svg></span>
-              <h3>Scanner Drivers</h3>
-              <p>How one scanner serves every imaging app you own — and why printing can work while scanning doesn't.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
-            <Link className="card" href="/drivers/graphics/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="9" cy="12" r="2.4"/><path d="M14 9h4M14 12h4M14 15h4"/></svg></span>
-              <h3>Graphics Drivers</h3>
-              <p>The software conversation between your OS, your GPU, and every frame on your screen.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
-            <Link className="card" href="/drivers/audio/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12c2 0 2-5 4-5s2 10 4 10 2-10 4-10 2 5 4 5"/></svg></span>
-              <h3>Audio Drivers</h3>
-              <p>Sample-accurate work happening in the background every time something plays sound.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
-            <Link className="card" href="/drivers/network/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5a10 10 0 0 1 14 0M8 15.5a6 6 0 0 1 8 0"/><circle cx="12" cy="19" r="1.2"/></svg></span>
-              <h3>Wi-Fi &amp; Network</h3>
-              <p>The bridge between your PC and the internet. Behind most dropped or sluggish Wi-Fi.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
-            <Link className="card" href="/drivers/bluetooth/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6.5 7.5l11 9L12 21V3l5.5 4.5-11 9"/></svg></span>
-              <h3>Bluetooth Drivers</h3>
-              <p>Discovery, pairing, and profiles — the stack that turns a radio into an invisible cable.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
-            <Link className="card" href="/drivers/usb/">
-              <span className="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="4" r="1.6"/><path d="M12 6v14M12 20l-4-4M8 16v-2.5M12 14l4-3M16 11h2"/></svg></span>
-              <h3>USB Drivers</h3>
-              <p>The universal translator for plug-and-play — your computer knows what you just plugged in.</p>
-              <span className="more">Read Overview <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-            </Link>
+
+          <div className="grid grid-auto-3">
+            {drivers.map(d => (
+              <Link key={d.id} href={`/drivers/${d.id}/`} className="card cat-card">
+                <div className="card-icon">{d.icon}</div>
+                <h3>{d.name}</h3>
+                <p>{d.desc}</p>
+                <span className="more">
+                  Explore Guide
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M13 6l6 6-6 6" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="block">
+      {/* ══════════════════════════════════════════
+          WHY DRIVERS MATTER (split)
+      ══════════════════════════════════════════ */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
         <div className="container">
-          <div className="cta-band">
-            <h2>Not sure where to start?</h2>
-            <p>Head to our troubleshooting hub for calm, ordered fixes for the most common driver problems — no jargon, no downloads required.</p>
-            <div className="hero-actions">
-              <Link href="/knowledge/" className="btn btn-light">
-                Troubleshooting Hub
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-              </Link>
-              <Link href="/blog/" className="btn btn-light">Read the Blog</Link>
+          <div className="split">
+            <div className="animate-fade-in">
+              <span className="section-kicker">Why Drivers Matter</span>
+              <h2>The bridge between<br />software and hardware.</h2>
+              <p>
+                Every click, print command, and device action needs a driver working behind
+                the scenes. Drivers translate instructions between your operating system and
+                physical hardware.
+              </p>
+              <ul className="ticks">
+                {features.map(f => (
+                  <li key={f.title}>
+                    <div>
+                      <strong style={{ display: 'block', marginBottom: '2px', color: 'var(--text-main)' }}>{f.title}</strong>
+                      <span style={{ color: 'var(--text-muted)', fontSize: '0.93rem' }}>{f.desc}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{ position: 'relative' }}>
+              <div className="img-wrapper">
+                <Image
+                  src="/assets/images/home-translator.svg"
+                  alt="Driver translation between software and hardware"
+                  width={560}
+                  height={480}
+                  style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
+                />
+              </div>
+              {/* floating mini-stats */}
+              <div className="float-stats">
+                <div className="float-stat">
+                  <span className="float-num">7</span>
+                  <span className="float-lbl">Driver Families</span>
+                </div>
+                <div className="float-stat">
+                  <span className="float-num">40+</span>
+                  <span className="float-lbl">Plain-English Guides</span>
+                </div>
+                <div className="float-stat">
+                  <span className="float-num">0</span>
+                  <span className="float-lbl">Downloads Hosted</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════
+          FAQ
+      ══════════════════════════════════════════ */}
+      <section className="block">
+        <div className="container">
+          <div className="section-head">
+            <span className="section-kicker">Start Here</span>
+            <h2>Common First Questions</h2>
+            <p>The questions readers ask most before exploring our guides.</p>
+          </div>
+
+          <div className="faq">
+            {faqs.map((item, i) => (
+              <details key={i}>
+                <summary>{item.q}</summary>
+                <div className="faq-body"><p style={{ margin: 0 }}>{item.a}</p></div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          CTA BAND
+      ══════════════════════════════════════════ */}
+      <section className="block" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="cta-band">
+            <span className="section-kicker" style={{ color: '#fff', background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.15)' }}>Community Driven</span>
+            <h2>Want us to explain<br />another driver topic?</h2>
+            <p>
+              Our friendly overview covers every major hardware category — from the device on
+              your desk to the chips inside your laptop. Tell us what to write next.
+            </p>
+            <div className="cta-actions">
+              <Link href="/drivers/" className="btn btn-primary">
+                Browse All Topics
+              </Link>
+              <Link href="/knowledge/" className="btn btn-ghost-white">
+                Need Help? Visit Knowledge
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </>
   )
 }
