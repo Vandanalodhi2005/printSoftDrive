@@ -46,7 +46,7 @@ export default function Header() {
               style={{ height: scrolled ? '28px' : '34px', width: 'auto', transition: 'height .25s ease' }} />
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop nav — pushed to the right via margin-left: auto */}
           <nav className="hdr__nav" aria-label="Main">
             {navLinks.map(l => (
               <Link key={l.name} href={l.path} className={`hdr__link${active(l.path) ? ' hdr__link--active' : ''}`}>
@@ -55,13 +55,8 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Right */}
+          {/* Hamburger (mobile only) */}
           <div className="hdr__end">
-            <Link href="/knowledge/" className="hdr__cta btn btn-primary">
-              Fix My Driver
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </Link>
-
             <button
               className={`hdr__burger${menuOpen ? ' hdr__burger--open' : ''}`}
               onClick={() => setMenuOpen(v => !v)}
@@ -98,10 +93,6 @@ export default function Header() {
         </nav>
 
         <div className="drawer__foot">
-          <Link href="/knowledge/" className="btn btn-primary drawer__cta" onClick={() => setMenuOpen(false)}>
-            Fix My Driver
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </Link>
           <p className="drawer__note">Independent · No downloads · No jargon</p>
         </div>
       </aside>

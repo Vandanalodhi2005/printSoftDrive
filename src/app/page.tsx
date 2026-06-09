@@ -132,6 +132,8 @@ export default function Home() {
                 alt="Knowledge centre illustration"
                 width={560}
                 height={460}
+                priority
+                loading="eager"
                 style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
               />
             </div>

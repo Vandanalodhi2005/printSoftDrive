@@ -53,13 +53,15 @@ export default function Drivers() {
             <p>Select a category to understand how it works and how to keep it performing at its best.</p>
           </div>
           <div className="grid grid-auto-3">
-            {driverFamilies.map(d => (
+            {driverFamilies.map((d, idx) => (
               <Link key={d.id} href={`/drivers/${d.id}/`} className="card driver-card">
                 <div className="driver-thumb">
                   <Image
                     src={d.image}
                     alt={d.name}
                     fill
+                    priority={idx < 3}
+                    loading={idx < 3 ? 'eager' : 'lazy'}
                     style={{ objectFit: 'contain', padding: '20px' }}
                     className="driver-image"
                   />
