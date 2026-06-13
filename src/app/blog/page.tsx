@@ -85,192 +85,133 @@ const [featured, ...rest] = posts
 export default function Blog() {
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="page-hero">
-        <div className="container">
-          <div className="hero-inner animate-fade-in">
-            <nav className="breadcrumb" aria-label="Breadcrumb">
-              <ol>
-                <li><Link href="/">Home</Link></li>
-                <li aria-current="page">Blog</li>
-              </ol>
-            </nav>
-            <span className="section-kicker">The Driver Blog</span>
-            <h1>Friendly, Useful Reads About<br />
-              <span style={{ color: 'var(--primary)' }}>How Your Computer Actually Works</span>
-            </h1>
-            <p className="hero-lede">
-              Plain-English articles, calm knowledge, and the occasional &ldquo;wait, that&rsquo;s what it does?&rdquo; moment.
-              Written for curious users who want practical answers without getting buried in technical jargon.
-            </p>
-            <div className="hero-actions">
-              <a href="#articles" className="btn btn-primary">Browse Latest Articles</a>
-              <Link href="/knowledge/" className="btn btn-outline">Need a Quick Fix?</Link>
+      {/* ── Hero Sub ── */}
+      <section className="hero-sub" aria-label="Driver Blog Hero">
+        {/* <div className="hero-sub-floats" aria-hidden="true">
+          <div className="hero-sub-float hero-sub-float-1">
+            <div className="hero-sub-float-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
             </div>
+            <div><span>Articles</span><small>Bite-sized</small></div>
+          </div>
+          <div className="hero-sub-float hero-sub-float-2">
+            <div className="hero-sub-float-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/><path d="M12 7v5l3 2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
+            </div>
+            <div><span>5–9 min</span><small>Average read</small></div>
+          </div>
+          <div className="hero-sub-float hero-sub-float-3">
+            <div className="hero-sub-float-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m9 12 2 2 4-4" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/></svg>
+            </div>
+            <div><span>Beginner</span><small>Friendly</small></div>
+          </div>
+          <div className="hero-sub-float hero-sub-float-4">
+            <div className="hero-sub-float-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/><path d="m8 12 3 3 5-6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </div>
+            <div><span>0 jargon</span><small>Walls</small></div>
+          </div>
+        </div> */}
+
+        <div className="hero-sub-inner animate-fade-in">
+          <span className="hero-sub-tag"><span className="hero-sub-tag-dot"></span> The Driver Blog</span>
+          <h1 className="home-hero-title">Friendly, Useful Reads About <span className="accent">How Your Computer Actually Works</span></h1>
+          <p className="hero-sub-sub">Plain-English articles, calm knowledge, and the occasional &ldquo;wait, that is what it does?&rdquo; moment. New posts every fortnight, all written by humans who genuinely enjoy this stuff.</p>
+          <div className="hero-sub-actions">
+            <a href="#latest" className="btn btn-primary">
+              <span>Browse Latest Articles</span>
+            </a>
+            <Link href="/knowledge/" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
+              <span>Need a Quick Fix?</span>
+            </Link>
+          </div>
+          <div className="hero-sub-bread">
+            <Link href="/">Home</Link> &rsaquo; <span>Blog</span>
           </div>
         </div>
       </section>
 
-      {/* ── What you'll find ── */}
-      <section className="blog-find-section">
-        <div className="container">
-          <div className="blog-intro-grid">
-            <div>
-              <h3 className="blog-find-heading">What You&apos;ll Find</h3>
-              <p className="blog-find-sub">Helpful reads for everyday users</p>
-              <ul className="blog-find-list">
-                {[
-                  'Driver installation and update guides',
-                  'Computer hardware explained simply',
-                  'Troubleshooting tips and practical fixes',
-                  'Technology concepts without the jargon',
-                ].map(item => (
-                  <li key={item} className="blog-find-item">
-                    <span className="blog-find-check" aria-hidden="true">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="blog-intro-badge-card">
-              <span className="blog-new-pill">NEW ARTICLES ADDED REGULARLY</span>
-              <p className="blog-badge-title">Learn Something Useful Today</p>
-              <p className="blog-badge-desc">Short reads, practical explanations, and helpful technology insights for everyday users.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Featured (Editor's Pick) ── */}
+      {/* ── Featured Post (Magazine-Style) ── */}
       <section className="block">
         <div className="container">
-          <div className="blog-section-label">
+          <div className="section-head" style={{ textAlign: 'left', alignItems: 'flex-start' }}>
             <span className="section-kicker">Editor&apos;s Pick</span>
-            <h2>This Week&apos;s Featured Read</h2>
+            <h2 style={{ fontSize: '2rem' }}>This Week&apos;s Featured Read</h2>
           </div>
 
-          {/* Software → Driver → Hardware diagram */}
-          <div className="blog-diagram" aria-hidden="true">
-            <div className="bd-box bd-software">Software</div>
-            <svg className="bd-arrow" width="36" height="20" viewBox="0 0 36 20" fill="none">
-              <path d="M0 10h32M26 4l6 6-6 6" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <div className="bd-box bd-driver">Driver</div>
-            <svg className="bd-arrow" width="36" height="20" viewBox="0 0 36 20" fill="none">
-              <path d="M0 10h32M26 4l6 6-6 6" stroke="#2563EB" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            <div className="bd-box bd-hardware">Hardware</div>
-          </div>
-
-          {/* Featured card — the entire card is a link */}
-          <Link href={`/blog/${featured.slug}/`} className="blog-featured-card">
-            <div className="bfc-media">
-              <div className="bfc-badges">
-                <span className="bfc-badge bfc-badge-green">Beginner</span>
-                <span className="bfc-badge bfc-badge-blue">5 Minute Read</span>
-              </div>
-              <Image
-                src={featured.image}
-                alt={featured.title}
-                width={480}
-                height={360}
-                priority
-                style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '28px' }}
+          <div className="blog-mag-hero">
+            <div className="blog-mag-hero-img">
+              <Image 
+                src={featured.image} 
+                alt={featured.title} 
+                fill
               />
+              <span className="blog-tag">Featured · Beginner</span>
             </div>
-            <div className="bfc-body">
-              <div className="bfc-meta">
-                <span className="bfc-tag">Beginner</span>
-                <span className="bfc-time">5 min read · Featured</span>
+            <div>
+              <div className="post-meta">
+                <span className="post-read">{featured.readTime} read</span>
               </div>
-              <h2 className="bfc-title">{featured.title}</h2>
-              <p className="bfc-desc">{featured.desc}</p>
-              <span className="bfc-cta">
+              <h2 style={{ fontSize: 'clamp(1.5rem,2.6vw,2rem)', margin: '0 0 14px', lineHeight: 1.2, color: 'var(--text-main)' }}>
+                {featured.title}
+              </h2>
+              <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '16px' }}>
+                {featured.desc}
+              </p>
+              <Link href={`/blog/${featured.slug}/`} className="btn btn-primary" style={{ marginTop: '12px' }}>
                 Read the Full Article
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M5 12h14M13 6l6 6-6 6"/>
-                </svg>
-              </span>
+              </Link>
             </div>
-          </Link>
+          </div>
         </div>
       </section>
 
-      {/* ── Latest articles grid ── */}
-      <section className="block" id="articles" style={{ background: 'var(--bg-light)' }}>
+      {/* ── Latest Articles Grid ── */}
+      <section id="latest" className="block" style={{ background: 'var(--bg-light)' }}>
         <div className="container">
           <div className="section-head">
             <span className="section-kicker">Latest Articles</span>
-            <h2>Fresh Reads From The Driver Blog</h2>
-            <p>Bite-sized, friendly, and always written by humans who enjoy this stuff.</p>
+            <h2>Fresh Reads From the Driver Blog</h2>
+            <p>Bite-sized, friendly, and always written by humans who genuinely enjoy this stuff.</p>
           </div>
 
-          <div className="blog-grid">
+          <div className="blog-grid-modern">
             {rest.map(post => (
-              /* Each card is a full <Link> so every pixel is clickable */
-              <Link key={post.slug} href={`/blog/${post.slug}/`} className="blog-post-card">
-                <div className="bpc-thumb">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    fill
-                    style={{ objectFit: 'contain', padding: '20px' }}
-                  />
-                  <span className="bpc-tag" style={{ background: post.tagColor }}>{post.tag}</span>
-                </div>
-                <div className="bpc-body">
-                  <div className="bpc-meta">
-                    <span className="bpc-source">PrintSoftDrive</span>
-                    <span className="bpc-sep">·</span>
-                    <span className="bpc-time">{post.readTime} read</span>
+              <article key={post.slug} className="blog-card-modern">
+                <Link href={`/blog/${post.slug}/`} className="blog-card-link">
+                  <div className="blog-card-modern-img">
+                    <Image 
+                      src={post.image} 
+                      alt={post.title} 
+                      fill 
+                    />
+                    <span className="blog-card-tag">{post.tag}</span>
                   </div>
-                  <p className="bpc-title">{post.title}</p>
-                  <p className="bpc-desc">{post.desc}</p>
-                  <span className="bpc-read">
-                    Read the article
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <path d="M5 12h14M13 6l6 6-6 6"/>
-                    </svg>
-                  </span>
-                </div>
-              </Link>
+                  <div className="blog-card-modern-body">
+                    <div className="post-meta">
+                      <span className="post-read">{post.readTime} read</span>
+                    </div>
+                    <h3>{post.title}</h3>
+                    <p>{post.desc}</p>
+                    <span className="text-link">Read more &rarr;</span>
+                  </div>
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Reader requests CTA ── */}
+      {/* ── Newsletter / CTA ── */}
       <section className="block">
         <div className="container">
-          <div className="blog-reader-grid">
-            <div>
-              <span className="section-kicker">Reader Requests</span>
-              <h2 style={{ marginBottom: '20px' }}>Want a Topic<br />Covered?</h2>
-              <p style={{ fontSize: '1.05rem', marginBottom: '32px' }}>
-                Drop us a line with a question, a confused symptom, or a topic you wish someone
-                would just explain plainly. We pick reader questions for new articles all the time.
-              </p>
-              <div className="hero-actions">
-                <Link href="/contact/" className="btn btn-primary">Suggest a Topic</Link>
-                <Link href="/knowledge/" className="btn btn-outline">Need Help Right Now?</Link>
-              </div>
-            </div>
-            <div className="blog-reader-cards">
-              <div className="brc-card">
-                <div className="brc-icon">💬</div>
-                <h4 className="brc-title">Reader Questions</h4>
-                <p className="brc-desc">Many of our most popular articles started as a simple reader question.</p>
-                <div className="brc-tags">
-                  {['Driver Errors', 'Wi-Fi Issues', 'GPU Updates', 'Printer Problems'].map(t => (
-                    <span key={t} className="brc-tag">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <div className="brc-card">
-                <div className="brc-icon">📖</div>
-                <h4 className="brc-title">Plain-English Answers</h4>
-                <p className="brc-desc">We focus on practical explanations without the jargon, acronyms, or unnecessary complexity.</p>
-              </div>
+          <div className="cta-card">
+            <h2>Want a Topic Covered?</h2>
+            <p>Drop us a line with a question, a confused symptom, or a topic you wish someone would just explain plainly. PrintSoftDrive picks reader questions for new articles all the time.</p>
+            <div className="cta-actions">
+              <Link href="/contact/" className="btn btn-primary" style={{ background: '#fff', color: 'var(--navy)' }}>Suggest a Topic</Link>
+              <Link href="/knowledge/" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>Need Help Right Now?</Link>
             </div>
           </div>
         </div>

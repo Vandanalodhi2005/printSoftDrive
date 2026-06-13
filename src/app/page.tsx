@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
+import Marquee from '../components/Marquee'
+import HomeTabs from '../components/HomeTabs'
 
 export const metadata: Metadata = {
   title: 'PrintSoftDrive — Device Drivers Explained in Plain English',
@@ -8,19 +10,13 @@ export const metadata: Metadata = {
 }
 
 const drivers = [
-  { id: 'printer',   name: 'Printer Drivers',   desc: 'From the print spooler to the final page — keeping your printing flow seamless.',        icon: '🖨️' },
-  { id: 'scanner',   name: 'Scanner Drivers',   desc: 'How your scanner talks to imaging apps — and why it sometimes stops.',                    icon: '📄' },
-  { id: 'graphics',  name: 'Graphics Drivers',  desc: 'The bridge between your GPU and every pixel on your screen.',                             icon: '🖥️' },
-  { id: 'audio',     name: 'Audio Drivers',     desc: 'Sample-accurate communication for every sound your system makes.',                        icon: '🔊' },
-  { id: 'network',   name: 'Network Drivers',   desc: 'The invisible cable connecting your computer to the digital world.',                      icon: '📡' },
-  { id: 'bluetooth', name: 'Bluetooth Drivers', desc: 'Pairing, discovery, and the stack that makes wireless work.',                             icon: '📶' },
-  { id: 'usb',       name: 'USB Drivers',       desc: 'The universal translator for all your plug-and-play devices.',                            icon: '🔌' },
-]
-
-const features = [
-  { title: 'Plain English Guides',     desc: 'No jargon. Just clear explanations of how your devices communicate.' },
-  { title: 'Calm Troubleshooting',     desc: 'Step-by-step solutions for common driver-related headaches.' },
-  { title: 'Independent & Trusted',    desc: 'We provide knowledge, not downloads. Fully independent education.' },
+  { id: 'printer',   name: 'Printer Drivers',   desc: 'From the print spooler to the final page — keeping your printing flow seamless.',        icon: '🖨️', tag: 'Output' },
+  { id: 'scanner',   name: 'Scanner Drivers',   desc: 'How your scanner talks to imaging apps — and why it sometimes stops.',                    icon: '📄', tag: 'Input' },
+  { id: 'graphics',  name: 'Graphics Drivers',  desc: 'The bridge between your GPU and every pixel on your screen.',                             icon: '🖥️', tag: 'Performance' },
+  { id: 'audio',     name: 'Audio Drivers',     desc: 'Sample-accurate communication for every sound your system makes.',                        icon: '🔊', tag: 'Real-time' },
+  { id: 'network',   name: 'Network Drivers',   desc: 'The invisible cable connecting your computer to the digital world.',                      icon: '📡', tag: 'Connectivity' },
+  { id: 'bluetooth', name: 'Bluetooth Drivers', desc: 'Pairing, discovery, and the stack that makes wireless work.',                             icon: '📶', tag: 'Wireless' },
+  { id: 'usb',       name: 'USB Drivers',       desc: 'The universal translator for all your plug-and-play devices.',                            icon: '🔌', tag: 'Plug & Play' },
 ]
 
 const faqs = [
@@ -42,27 +38,29 @@ export default function Home() {
   return (
     <>
       {/* ══════════════════════════════════════════
-          HERO
+          HERO PRO
       ══════════════════════════════════════════ */}
-      <section className="home-hero">
-        <div className="container">
-          <div className="home-hero-inner animate-fade-in">
-            <div className="hero-badge">
-              <span className="hero-badge-dot">✓</span>
-              Trusted Driver Knowledge Base
-            </div>
-
-            <h1 className="home-hero-title">
-              Printer Drivers,<br />
-              <span className="gradient-text">Explained Clearly.</span>
+      <section className="hero-pro">
+        <div className="hero-pro-grid-layout">
+          {/* Main Hero Content */}
+          <div className="hero-pro-content animate-fade-in">
+            <span className="hero-pro-tag">
+              <span className="hero-pro-dot">✓</span>
+              Independent Driver Education
+            </span>
+            
+            <h1 className="hero-pro-title">
+              The Quiet Software That<br />
+              Makes Your <span className="gradient-text">Device Work.</span>
             </h1>
 
-            <p className="home-hero-desc">
-              Learn how printer drivers work, troubleshoot issues, and find practical 
-              solutions explained in simple language.
+            <p className="hero-pro-sub">
+              Drivers are the invisible translators between your computer and
+              everything plugged into it. Learn how they work, troubleshoot issues,
+              and find practical solutions explained in simple language.
             </p>
 
-            <div className="hero-actions">
+            <div className="hero-actions" style={{ justifyContent: 'flex-start' }}>
               <Link href="/drivers/" className="btn btn-primary">
                 Explore Drivers
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -70,79 +68,97 @@ export default function Home() {
                 </svg>
               </Link>
               <Link href="/knowledge/" className="btn btn-outline">
-                Learn More
+                Knowledge Help
               </Link>
             </div>
-          </div>
-        </div>
 
-        {/* decorative rings */}
-        <div className="hero-rings" aria-hidden="true">
-          <div className="ring ring-1" />
-          <div className="ring ring-2" />
-          <div className="ring ring-3" />
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          STATS BAR
-      ══════════════════════════════════════════ */}
-      <section style={{ background: 'var(--bg-light)', borderBottom: '1px solid var(--border)' }}>
-        <div className="container">
-          <div className="stats-bar" style={{ borderRadius: 0, border: 'none', background: 'transparent' }}>
-            <div className="stat-item">
-              <div className="stat-number">500+</div>
-              <div className="stat-label">Driver Guides</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">100+</div>
-              <div className="stat-label">Printer Models</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">24/7</div>
-              <div className="stat-label">Knowledge Access</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          KNOWLEDGE CENTER PROMO
-      ══════════════════════════════════════════ */}
-      <section className="block" style={{ background: 'var(--bg-light)' }}>
-        <div className="container">
-          <div className="kc-grid">
-            <div className="kc-text">
-              <span className="kicker"><span className="kicker-dot" />Driver Knowledge Center</span>
-              <h2>Guides &amp; Troubleshooting</h2>
-              <p>From printer setup to advanced driver diagnostics — everything in one calm, organised hub.</p>
-              <ul className="kc-chips">
-                {['Printer Setup Guides', 'Driver Installation Help', 'Error Fix Tutorials', 'Compatibility Resources'].map(t => (
-                  <li key={t} className="kc-chip">{t}</li>
-                ))}
-              </ul>
-              <div className="kc-stat">
-                <span className="kc-stat-num">1000+</span>
-                <span className="kc-stat-lbl">Monthly Readers</span>
+            <div className="hero-pro-stats">
+              <div className="hero-pro-stat">
+                <span className="hero-pro-stat-num">7</span>
+                <span className="hero-pro-stat-label">Driver Categories</span>
+              </div>
+              <div className="hero-pro-stat-divider" aria-hidden="true"></div>
+              <div className="hero-pro-stat">
+                <span className="hero-pro-stat-num">500+</span>
+                <span className="hero-pro-stat-label">Driver Guides</span>
+              </div>
+              <div className="hero-pro-stat-divider" aria-hidden="true"></div>
+              <div className="hero-pro-stat">
+                <span className="hero-pro-stat-num">100%</span>
+                <span className="hero-pro-stat-label">Free, Always</span>
               </div>
             </div>
-            <div className="kc-visual">
-              <Image
-                src="/assets/images/knowledge-flow.svg"
-                alt="Knowledge centre illustration"
-                width={560}
-                height={460}
-                priority
-                loading="eager"
-                style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
-              />
-            </div>
           </div>
+
+          {/* Right Rail */}
+          <aside className="hero-rail">
+            <section className="hero-rail-discover" aria-labelledby="discoverHeading">
+              <h2 className="hero-rail-discover-title" id="discoverHeading">
+                Discover More
+              </h2>
+              <ul className="hero-rail-discover-list" role="list">
+                <li>
+                  <Link href="/drivers/graphics/">
+                    <span className="hero-rail-discover-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="4" width="18" height="13" rx="2" stroke="currentColor" strokeWidth="1.8" />
+                        <path d="M8 21h8M12 17v4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                    <span>How Display Drivers Render Every Pixel</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/drivers/network/">
+                    <span className="hero-rail-discover-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M2 9a15 15 0 0 1 20 0M5 13a10 10 0 0 1 14 0M8.5 16.5a5 5 0 0 1 7 0" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                        <circle cx="12" cy="20" r="1.2" fill="currentColor" />
+                      </svg>
+                    </span>
+                    <span>Why Wi-Fi Drivers Quietly Drop Out</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/drivers/audio/">
+                    <span className="hero-rail-discover-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 9v6h4l5 4V5L8 9H4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                        <path d="M16 8a5 5 0 0 1 0 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                      </svg>
+                    </span>
+                    <span>The Tiny Software Behind Crisp Audio</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/knowledge/">
+                    <span className="hero-rail-discover-icon" aria-hidden="true">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 4h12a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                        <path d="M4 17a3 3 0 0 1 3-3h12" stroke="currentColor" strokeWidth="1.8" />
+                      </svg>
+                    </span>
+                    <span>Browse the Full Knowledge Hub</span>
+                  </Link>
+                </li>
+              </ul>
+            </section>
+          </aside>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          DRIVER CATEGORIES
+          MARQUEE STRIP
+      ══════════════════════════════════════════ */}
+      <Marquee />
+
+      {/* ══════════════════════════════════════════
+          WHAT IS A DRIVER (Tabs)
+      ══════════════════════════════════════════ */}
+      <HomeTabs />
+
+      {/* ══════════════════════════════════════════
+          DRIVER CATEGORIES (Grid)
       ══════════════════════════════════════════ */}
       <section className="block">
         <div className="container">
@@ -157,14 +173,15 @@ export default function Home() {
 
           <div className="grid grid-auto-3">
             {drivers.map(d => (
-              <Link key={d.id} href={`/drivers/${d.id}/`} className="card cat-card">
-                <div className="card-icon">{d.icon}</div>
+              <Link key={d.id} href={`/drivers/${d.id}/`} className="driver-tile">
+                <span className="driver-tile-tag">{d.tag}</span>
+                <div className="driver-tile-icon">{d.icon}</div>
                 <h3>{d.name}</h3>
-                <p>{d.desc}</p>
-                <span className="more">
-                  Explore Guide
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
+                <p className="driver-tile-summary">{d.desc}</p>
+                <span className="driver-tile-toggle">
+                  Read more
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
               </Link>
@@ -174,64 +191,9 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════
-          WHY DRIVERS MATTER (split)
-      ══════════════════════════════════════════ */}
-      <section className="block" style={{ background: 'var(--bg-light)' }}>
-        <div className="container">
-          <div className="split">
-            <div className="animate-fade-in">
-              <span className="section-kicker">Why Drivers Matter</span>
-              <h2>The bridge between<br />software and hardware.</h2>
-              <p>
-                Every click, print command, and device action needs a driver working behind
-                the scenes. Drivers translate instructions between your operating system and
-                physical hardware.
-              </p>
-              <ul className="ticks">
-                {features.map(f => (
-                  <li key={f.title}>
-                    <div>
-                      <strong style={{ display: 'block', marginBottom: '2px', color: 'var(--text-main)' }}>{f.title}</strong>
-                      <span style={{ color: 'var(--text-muted)', fontSize: '0.93rem' }}>{f.desc}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div style={{ position: 'relative' }}>
-              <div className="img-wrapper">
-                <Image
-                  src="/assets/images/home-translator.svg"
-                  alt="Driver translation between software and hardware"
-                  width={560}
-                  height={480}
-                  style={{ width: '100%', height: 'auto', borderRadius: '20px' }}
-                />
-              </div>
-              {/* floating mini-stats */}
-              <div className="float-stats">
-                <div className="float-stat">
-                  <span className="float-num">7</span>
-                  <span className="float-lbl">Driver Families</span>
-                </div>
-                <div className="float-stat">
-                  <span className="float-num">40+</span>
-                  <span className="float-lbl">Plain-English Guides</span>
-                </div>
-                <div className="float-stat">
-                  <span className="float-num">0</span>
-                  <span className="float-lbl">Downloads Hosted</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
           FAQ
       ══════════════════════════════════════════ */}
-      <section className="block">
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
         <div className="container">
           <div className="section-head">
             <span className="section-kicker">Start Here</span>
@@ -253,7 +215,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           CTA BAND
       ══════════════════════════════════════════ */}
-      <section className="block" style={{ paddingTop: 0 }}>
+      <section className="block">
         <div className="container">
           <div className="cta-band">
             <span className="section-kicker" style={{ color: '#fff', background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.15)' }}>Community Driven</span>
