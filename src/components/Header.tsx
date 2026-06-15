@@ -11,7 +11,6 @@ const navLinks = [
   { name: 'Knowledge Base', path: '/knowledge/' },
   { name: 'Blog',           path: '/blog/' },
   { name: 'About',          path: '/about/' },
-  { name: 'Contact',        path: '/contact/' },
 ];
 
 export default function Header() {
@@ -47,12 +46,36 @@ export default function Header() {
           </Link>
 
           {/* Desktop nav — pushed to the right via margin-left: auto */}
-          <nav className="hdr__nav" aria-label="Main">
+          <nav className="hdr__nav" aria-label="Main" style={{ gap: '24px' }}>
             {navLinks.map(l => (
               <Link key={l.name} href={l.path} className={`hdr__link${active(l.path) ? ' hdr__link--active' : ''}`}>
                 {l.name}
               </Link>
             ))}
+            <Link 
+              href="/contact/" 
+              className="btn btn-primary"
+              style={{
+                background: 'linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%)',
+                border: 'none',
+                color: '#fff',
+                padding: '10px 20px',
+                borderRadius: 'var(--radius-sm)',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 1px 2px rgba(37, 99, 235, 0.2)';
+              }}
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Hamburger (mobile only) */}
@@ -90,6 +113,10 @@ export default function Header() {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </Link>
           ))}
+          <Link key="Contact" href="/contact/" className={`drawer__link${active('/contact/') ? ' drawer__link--active' : ''}`}>
+            <span>Contact</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </Link>
         </nav>
 
         <div className="drawer__foot">

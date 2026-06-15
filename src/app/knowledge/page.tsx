@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import ThemeIcon from '../../components/ThemeIcon'
 
 export const metadata: Metadata = {
   title: 'Driver Troubleshooting Knowledge Base | PrintSoftDrive',
@@ -8,12 +9,12 @@ export const metadata: Metadata = {
 }
 
 const symptoms = [
-  { id: 'printer',   tag: 'Device',    title: "Device Prints Blank or Garbled Pages",  desc: "Almost always a device driver issue. Reinstall the latest driver from the device manufacturer, not from a generic listing.", icon: '🖨️' },
-  { id: 'audio',     tag: 'Audio',     title: 'No Sound Coming Out',                   desc: "Check default output device first, then reinstall the audio driver from your laptop or motherboard maker.", icon: '🔇' },
-  { id: 'network',   tag: 'Wi-Fi',     title: 'Wi-Fi Drops Constantly',                desc: 'Disable aggressive power-saving on the network adapter, then update the driver from the laptop maker.', icon: '📶' },
-  { id: 'graphics',  tag: 'Display',   title: 'Screen Flickers or Goes Black',         desc: 'Almost always a graphics driver problem. Roll back to a known-good version or do a clean install.', icon: '🖥️' },
-  { id: 'usb',       tag: 'USB',       title: 'USB Device Not Recognised',             desc: 'Try another cable, then another port. If it still fails, reinstall the device-specific driver and the USB controller driver.', icon: '🔌' },
-  { id: 'system',    tag: 'System',    title: 'Computer Feels Slow After Update',      desc: "Re-install the chipset driver and check the GPU driver. Updates sometimes replace tuned drivers with generic ones.", icon: '🐢' },
+  { id: 'printer',   tag: 'Device',    title: 'Device Prints Blank or Garbled Pages',  desc: 'Almost always a device driver issue. Reinstall the latest driver from the device manufacturer, not from a generic listing.', icon: 'printer' },
+  { id: 'audio',     tag: 'Audio',     title: 'No Sound Coming Out',                   desc: 'Check default output device first, then reinstall the audio driver from your laptop or motherboard maker.', icon: 'audio-muted' },
+  { id: 'network',   tag: 'Wi-Fi',     title: 'Wi-Fi Drops Constantly',                desc: 'Disable aggressive power-saving on the network adapter, then update the driver from the laptop maker.', icon: 'network' },
+  { id: 'graphics',  tag: 'Display',   title: 'Screen Flickers or Goes Black',         desc: 'Almost always a graphics driver problem. Roll back to a known-good version or do a clean install.', icon: 'graphics' },
+  { id: 'usb',       tag: 'USB',       title: 'USB Device Not Recognised',             desc: 'Try another cable, then another port. If it still fails, reinstall the device-specific driver and the USB controller driver.', icon: 'usb' },
+  { id: 'system',    tag: 'System',    title: 'Computer Feels Slow After Update',      desc: 'Re-install the chipset driver and check the GPU driver. Updates sometimes replace tuned drivers with generic ones.', icon: 'turtle' },
 ]
 
 export default function Knowledge() {
@@ -145,7 +146,9 @@ export default function Knowledge() {
             {symptoms.map((s, index) => (
               <article key={index} className="symptom-card-pro animate-fade-in">
                 <div className="symptom-card-pro-head">
-                  <div className="symptom-card-pro-icon">{s.icon}</div>
+                  <div className="symptom-card-pro-icon">
+                    <ThemeIcon type={s.icon} size={40} />
+                  </div>
                   <span className="symptom-card-pro-tag">{s.tag}</span>
                 </div>
                 <div className="symptom-card-pro-body">

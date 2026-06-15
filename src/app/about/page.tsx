@@ -10,43 +10,16 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <>
-      {/* ── Hero Sub ── */}
+      {/* Hero Section */}
       <section className="hero-sub" aria-label="About PrintSoftDrive">
-        {/* <div className="hero-sub-floats" aria-hidden="true">
-          <div className="hero-sub-float hero-sub-float-1">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z" stroke="currentColor" strokeWidth="2"/></svg>
-            </div>
-            <div><span>Independent</span><small>No sponsors</small></div>
-          </div>
-          <div className="hero-sub-float hero-sub-float-2">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/><path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-            </div>
-            <div><span>Plain English</span><small>Always</small></div>
-          </div>
-          <div className="hero-sub-float hero-sub-float-3">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z" stroke="currentColor" strokeWidth="2"/></svg>
-            </div>
-            <div><span>Privacy</span><small>Respected</small></div>
-          </div>
-          <div className="hero-sub-float hero-sub-float-4">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 8v4M12 16h.01" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/></svg>
-            </div>
-            <div><span>Educational</span><small>Always</small></div>
-          </div>
-        </div> */}
-
         <div className="hero-sub-inner animate-fade-in">
           <span className="hero-sub-tag"><span className="hero-sub-tag-dot"></span> About PrintSoftDrive</span>
-          <h1 className="home-hero-title">We Translate the Technical, So <span className="accent">You Can Get On</span> With Your Day</h1>
-          <p className="hero-sub-sub">PrintSoftDrive is a small, independent education project with one stubborn belief: technology should not feel intimidating. Every overview on this site is written to be useful to a complete beginner — and still respected by someone who knows their way around a kernel debugger.</p>
+          <h1 className="home-hero-title">We Translate the Technical, <br/>So <span className="accent">You Can Get On With Your Day</span></h1>
+          <p className="hero-sub-sub">PrintSoftDrive is a small, independent education project with one stubborn belief: technology should not feel intimidating. Every guide here is written for beginners while still being useful for advanced users who want clarity without noise.</p>
           <div className="hero-sub-actions">
-            <a href="#topics" className="btn btn-primary">
+            <Link href="/drivers/" className="btn btn-primary">
               <span>Browse Driver Topics</span>
-            </a>
+            </Link>
             <Link href="/contact/" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
               <span>Send Us a Question</span>
             </Link>
@@ -57,134 +30,242 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── Mission (3 Columns) ── */}
+      {/* Why PrintSoftDrive Exists */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
+        <div className="container">
+          <div className="section-head" style={{ textAlign: 'center' }}>
+            <span className="section-kicker">Why PrintSoftDrive Exists</span>
+            <h2>Most technical documentation assumes too much knowledge or buries simple answers under layers of complexity. PrintSoftDrive exists to fix that — by turning confusing driver issues into clear, actionable explanations.</h2>
+          </div>
+          <div className="cards-3 stagger" style={{ marginTop: '48px' }}>
+            <article className="card animate-fade-in">
+              <div className="card-icon">
+                <Image 
+                  src="/assets/images/windows-logo.svg" 
+                  alt="Beginner friendly" 
+                  width={40} 
+                  height={40}
+                />
+              </div>
+              <h3>Beginner-friendly explanations</h3>
+            </article>
+            <article className="card animate-fade-in">
+              <div className="card-icon">
+                <Image 
+                  src="/assets/images/macos-logo.svg" 
+                  alt="No unnecessary jargon" 
+                  width={40} 
+                  height={40}
+                />
+              </div>
+              <h3>No unnecessary technical jargon</h3>
+            </article>
+            <article className="card animate-fade-in">
+              <div className="card-icon">
+                <Image 
+                  src="/assets/images/linux-logo.svg" 
+                  alt="Real-world troubleshooting" 
+                  width={40} 
+                  height={40}
+                />
+              </div>
+              <h3>Real-world troubleshooting focus</h3>
+            </article>
+            <article className="card animate-fade-in">
+              <div className="card-icon">⚡</div>
+              <h3>Fast, practical solutions</h3>
+            </article>
+          </div>
+          <div style={{ textAlign: 'center', marginTop: '48px', fontSize: '1.5rem', fontWeight: '700' }}>
+            Simple. Clear. Useful.
+            <div style={{ fontSize: '1rem', fontWeight: '400', marginTop: '8px', color: 'var(--text-body)' }}>That’s the PrintSoftDrive promise.</div>
+          </div>
+        </div>
+      </section>
+
+      {/* About PrintSoftDrive */}
       <section className="block">
+        <div className="container">
+          <div className="split-row">
+            <div className="split-image animate-fade-in">
+              <Image
+                src="/windows.webp"
+                alt="Person working at a clean desk with laptop"
+                width={640}
+                height={420}
+                style={{ padding: '0', borderRadius: 'var(--radius-xl)' }}
+              />
+            </div>
+            <div className="split-text animate-fade-in">
+              <span className="section-kicker">About PrintSoftDrive</span>
+              <h2>A Friendly Voice in a Noisy Tech World</h2>
+              <p>We are a small, independent education project built around one stubborn idea — technology should not feel intimidating. Every overview on this site is written to make sense the first time you read it, whether you are a complete beginner or someone who already knows their way around a kernel debugger.</p>
+              <p>No sponsorships. No affiliate links. No "instant driver updater" nonsense. Just clear, honest explanations of how things actually work.</p>
+              <ul className="check-list" style={{ marginTop: '24px' }}>
+                <li>Independent and free to read, always</li>
+                <li>Plain-English first, technical accuracy second to none</li>
+                <li>Privacy-respecting — no aggressive trackers or sold data</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Mission */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
         <div className="container">
           <div className="section-head" style={{ textAlign: 'center' }}>
             <span className="section-kicker">Our Mission</span>
-            <h2>Driver Knowledge, Without the Headache</h2>
-            <p style={{ maxWidth: '800px', margin: '0 auto' }}>
-              The world has plenty of forums full of contradictory advice and plenty of dry technical manuals. 
-              PrintSoftDrive sits happily in the middle — accurate, friendly, and grounded in real curiosity about how things work.
-            </p>
+            <h2>Making drivers accessible for everyone</h2>
+            <p style={{ maxWidth: '800px', margin: '0 auto' }}>Our mission is simple: to demystify device drivers so that anyone, regardless of technical background, can understand, troubleshoot, and maintain their hardware with confidence.</p>
+            <p style={{ maxWidth: '800px', margin: '16px auto 0' }}>We believe that technology should feel approachable, not intimidating. That's why every guide we create prioritizes clarity, patience, and practicality over jargon or complexity.</p>
           </div>
-          <div className="cards-3 stagger">
+          <div className="cards-3 stagger" style={{ marginTop: '48px' }}>
             <article className="card animate-fade-in">
               <div className="value-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-                  <path d="M9 12l2 2 4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="rgba(37,99,235,0.1)"/>
+                  <path d="M22 14v16M14 22h16" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round"/>
                 </svg>
               </div>
-              <h3>Honest &amp; Independent</h3>
-              <p>PrintSoftDrive is not affiliated with any hardware brand or operating system maker. No sponsorships, no paid placements, no nudging you toward one product over another. Just clear explanations and helpful guidance.</p>
+              <h3>Education First</h3>
+              <p>We focus on understanding, not just quick fixes</p>
             </article>
             <article className="card animate-fade-in">
               <div className="value-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="rgba(37,99,235,0.1)"/>
+                  <path d="M14 18h16M14 26h16M14 22h10" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round"/>
                 </svg>
               </div>
-              <h3>Plain Language First</h3>
-              <p>If a sentence needs three reference tabs to understand, PrintSoftDrive rewrites it. Technical accuracy without the wall of jargon — that is the bar every overview on this site has to meet.</p>
+              <h3>No Sponsorships</h3>
+              <p>Our advice is always unbiased and independent</p>
             </article>
             <article className="card animate-fade-in">
               <div className="value-icon">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M12 22s8-4 8-12V5l-8-3-8 3v5c0 8 8 12 8 12z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
+                <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+                  <rect width="44" height="44" rx="10" fill="rgba(37,99,235,0.1)"/>
+                  <path d="M16 28c0-4 3.6-7.2 6-7.2c2.4 0 6 3.2 6 7.2c0 4 2.4 5.6 0 5.6c-4.8 0-6-1.6-6-1.6s-1.2 1.6-6 1.6c-2.4 0 0-1.6 0-5.6Z" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="22" cy="14" r="4" fill="var(--primary)"/>
                 </svg>
               </div>
-              <h3>Privacy Respected</h3>
-              <p>PrintSoftDrive does not sell your data, run aggressive trackers, or stuff its pages with ads that follow you around the internet. Read freely — that is the whole point of an educational site.</p>
+              <h3>Beginner-Friendly</h3>
+              <p>We assume nothing, explain everything</p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Our Story (Split Row) ── */}
-      <section className="block" style={{ background: 'var(--bg-light)' }}>
-        <div className="container">
-          <div className="split-row">
-            <div className="split-text animate-fade-in">
-              <span className="section-kicker">Our Story</span>
-              <h2>Built for the People Who Just Want Things to Work</h2>
-              <p>
-                PrintSoftDrive started from a simple frustration. Friends and family kept asking the same questions — why is my device not working? 
-                Why did my laptop go slow after that update? What even is a driver, really? The answers existed, but they were buried in technical 
-                documentation, scattered across forum threads, or written in a tone that quietly made people feel they were not "tech enough" to understand.
-              </p>
-              <p>
-                So PrintSoftDrive was built to be the friendly explainer we always wished we could send people to. Every overview is written by 
-                humans who genuinely enjoy this stuff and want you to enjoy it too.
-              </p>
-            </div>
-            <div className="split-image animate-fade-in">
-              <Image 
-                src="/assets/images/home-translator.svg" 
-                alt="A friendly tech support professional helping at a desk" 
-                width={640} 
-                height={420} 
-                style={{ padding: '40px', background: '#fff' }}
-              />
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ── Journey Timeline ── */}
+      {/* What drives us */}
       <section className="block">
         <div className="container">
-          <div className="section-head" style={{ textAlign: 'left', alignItems: 'flex-start' }}>
-            <span className="section-kicker">Our Journey</span>
-            <h2>How PrintSoftDrive Grew Up</h2>
-            <p>From one frustrated explainer to a full educational hub — here's the short version.</p>
-          </div>
-          <div className="timeline animate-fade-in">
-            <div className="timeline-item">
-              <span className="timeline-year">Step One</span>
-              <h3>The First Article</h3>
-              <p>PrintSoftDrive started as a single long article — "What is a driver, really?" — written one weekend after the same question came up at a family dinner for the third time.</p>
+          <div className="split-row" style={{ flexDirection: 'row-reverse' }}>
+            <div className="split-image animate-fade-in">
+              <Image
+                src="/mack.webp"
+                alt="What drives us"
+                width={640}
+                height={420}
+                style={{ padding: '0', borderRadius: 'var(--radius-xl)' }}
+              />
             </div>
-            <div className="timeline-item">
-              <span className="timeline-year">Step Two</span>
-              <h3>The Hardware Library</h3>
-              <p>From there we added an overview for every major hardware category — device, graphics, audio, networking — each written to the same plain-language standard.</p>
-            </div>
-            <div className="timeline-item">
-              <span className="timeline-year">Step Three</span>
-              <h3>The Knowledge Hub</h3>
-              <p>Readers kept asking "but how do I fix it right now?" — so PrintSoftDrive built a dedicated step-by-step fix overview for every common driver symptom.</p>
-            </div>
-            <div className="timeline-item">
-              <span className="timeline-year">Ongoing</span>
-              <h3>Growing With Readers</h3>
-              <p>New articles come from reader questions. If you have a confused symptom or a topic you wish someone would just explain plainly, drop us a note.</p>
+            <div className="split-text animate-fade-in">
+              <span className="section-kicker">What drives us</span>
+              <h2>We've all been there: staring at a confusing error message, not knowing where to turn.</h2>
+              <p style={{ marginTop: '16px' }}>PrintSoftDrive exists to be the calm, helpful resource we wish we had in those moments.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Stats ── */}
+      {/* Our Promise */}
       <section className="block" style={{ background: 'var(--bg-light)' }}>
         <div className="container">
-          <div className="stats-row animate-fade-in">
-            <div className="stats-item"><span className="stats-num">6</span><span className="stats-label">Driver Categories</span></div>
-            <div className="stats-item"><span className="stats-num">18</span><span className="stats-label">In-Depth Articles</span></div>
-            <div className="stats-item"><span className="stats-num">100%</span><span className="stats-label">Free, Forever</span></div>
-            <div className="stats-item"><span className="stats-num">0</span><span className="stats-label">Sponsored Content</span></div>
+          <div className="section-head" style={{ textAlign: 'center' }}>
+            <span className="section-kicker">Our Promise</span>
+            <h2>What You Can Always Expect</h2>
+          </div>
+          <div style={{ maxWidth: '400px', margin: '0 auto' }}>
+            <ul className="check-list" style={{ fontSize: '1.1rem' }}>
+              <li>Always plain language, no jargon</li>
+              <li>No hidden agendas or sales pitches</li>
+              <li>Safety first, always</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* ── What we Do / Don't ── */}
+      {/* Our Story */}
+      <section className="block">
+        <div className="container">
+          <div className="section-head">
+            <span className="section-kicker">Our Story</span>
+            <h2>How PrintSoftDrive came to be</h2>
+          </div>
+          <div style={{ marginTop: '48px', display: 'flex', flexDirection: 'column', gap: '48px' }}>
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <h3 style={{ marginBottom: '16px' }}>The spark</h3>
+              <p>PrintSoftDrive started with a simple frustration: trying to help a family member fix a printer driver issue, and every search result either assumed too much knowledge or tried to sell something.</p>
+            </div>
+
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <h3 style={{ marginBottom: '16px' }}>Building the first guides</h3>
+              <p>What began as a small collection of notes for friends and family quickly grew. We realized there was a real need for calm, clear explanations of driver basics—what they do, why they matter, and how to fix common issues.</p>
+            </div>
+
+            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+              <h3 style={{ marginBottom: '16px' }}>Growing into a resource</h3>
+              <p>Over time, we expanded our coverage to include every major driver category, added a knowledge hub for quick fixes, and launched a blog to explore broader computing concepts in plain English. Today, PrintSoftDrive serves thousands of readers every month.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Journey Timeline */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
+        <div className="container">
+          <div className="section-head">
+            <span className="section-kicker">Our Journey</span>
+            <h2>Our path so far</h2>
+          </div>
+          <div className="timeline animate-fade-in" style={{ marginTop: '48px' }}>
+            <div className="timeline-item">
+              <span className="timeline-year">2021</span>
+              <h3>The Beginning</h3>
+              <p>Created the first printer driver guides for friends and family</p>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-year">2022</span>
+              <h3>Expanding Coverage</h3>
+              <p>Added graphics, audio, and network driver overviews</p>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-year">2023</span>
+              <h3>Knowledge Hub Launch</h3>
+              <p>Launched the troubleshooting knowledge hub with symptom-based fixes</p>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-year">2024</span>
+              <h3>Blog Goes Live</h3>
+              <p>Started publishing explainers about how computers really work</p>
+            </div>
+            <div className="timeline-item">
+              <span className="timeline-year">2025</span>
+              <h3>Today</h3>
+              <p>Helping thousands of readers every month with plain-English driver advice</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What To Expect */}
       <section className="block">
         <div className="container">
           <div className="section-head" style={{ textAlign: 'center' }}>
-            <span className="section-kicker">What to Expect</span>
-            <h2>What PrintSoftDrive Does — And Does Not</h2>
+            <span className="section-kicker">What To Expect</span>
+            <h2>What PrintSoftDrive Does — And What It Does Not</h2>
           </div>
-          <div className="do-grid">
+          <div className="do-grid" style={{ marginTop: '48px' }}>
             <div className="do-card do-yes animate-fade-in">
               <h3>What We Do</h3>
               <ul className="check-list">
@@ -193,6 +274,7 @@ export default function About() {
                 <li>Help you understand the symptoms of common driver issues</li>
                 <li>Provide curated, evergreen reference material</li>
                 <li>Publish step-by-step fix overviews for every common symptom</li>
+                <li>Respect your time, attention, and privacy</li>
               </ul>
             </div>
             <div className="do-card do-no animate-fade-in">
@@ -203,23 +285,24 @@ export default function About() {
                 <li>Recommend specific brands, retailers, or paid services</li>
                 <li>Run intrusive ads or sell your personal information</li>
                 <li>Pretend to be the manufacturer of any device</li>
+                <li>Use scare tactics to push downloads or paid tools</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Editorial Standards ── */}
+      {/* Editorial Standards */}
       <section className="block" style={{ background: 'var(--bg-light)' }}>
         <div className="container">
-          <div className="section-head">
+          <div className="section-head" style={{ textAlign: 'center' }}>
             <span className="section-kicker">Editorial Standards</span>
-            <h2>How PrintSoftDrive Is Written</h2>
-            <p>Every article on this site is reviewed against a clear set of standards.</p>
+            <h2>How PrintSoftDrive Is Written and Reviewed</h2>
+            <p style={{ maxWidth: '800px', margin: '0 auto' }}>Every article on this site is written, fact-checked, and reviewed against a clear set of editorial standards designed to keep things accurate, useful, and free of marketing fluff.</p>
           </div>
-          <div className="cards-3 stagger">
+          <div className="cards-3 stagger" style={{ marginTop: '48px' }}>
             <article className="card animate-fade-in">
-              <div className="card-icon" style={{ color: 'var(--accent)', marginBottom: '20px' }}>
+              <div className="value-icon">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
                   <rect width="44" height="44" rx="10" fill="rgba(255,185,0,0.15)"/>
                   <rect x="10" y="10" width="24" height="24" rx="3" fill="none" stroke="currentColor" strokeWidth="2"/>
@@ -227,10 +310,10 @@ export default function About() {
                 </svg>
               </div>
               <h3>Researched and Reviewed</h3>
-              <p>Every factual claim about how drivers function is grounded in documented operating system specifications or first-hand testing.</p>
+              <p>Every factual claim about how drivers function is grounded in documented operating system specifications, driver development frameworks, or first-hand testing. No copy-pasted forum posts, no AI hallucinations passed off as fact.</p>
             </article>
             <article className="card animate-fade-in">
-              <div className="card-icon" style={{ color: 'var(--accent)', marginBottom: '20px' }}>
+              <div className="value-icon">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
                   <rect width="44" height="44" rx="10" fill="rgba(255,185,0,0.15)"/>
                   <circle cx="22" cy="18" r="7" fill="currentColor"/>
@@ -238,10 +321,10 @@ export default function About() {
                 </svg>
               </div>
               <h3>Written by Humans</h3>
-              <p>Articles are drafted and edited by people. We use research tools, but the friendly writing voice is entirely human.</p>
+              <p>Articles are drafted, edited, and signed off by people. We use research tools to gather and verify information, but the writing voice — friendly, calm, occasionally enthusiastic about a particularly elegant piece of engineering — is entirely human.</p>
             </article>
             <article className="card animate-fade-in">
-              <div className="card-icon" style={{ color: 'var(--accent)', marginBottom: '20px' }}>
+              <div className="value-icon">
                 <svg width="44" height="44" viewBox="0 0 44 44" fill="none" aria-hidden="true">
                   <rect width="44" height="44" rx="10" fill="rgba(255,185,0,0.15)"/>
                   <path d="M22 10 L34 16 L34 28 L22 34 L10 28 L10 16 Z" fill="none" stroke="currentColor" strokeWidth="2"/>
@@ -249,21 +332,122 @@ export default function About() {
                 </svg>
               </div>
               <h3>Updated as Things Change</h3>
-              <p>When operating systems release significant updates that change how a driver behaves, the affected articles are revisited.</p>
+              <p>When operating systems release significant updates that change how a driver behaves, the affected articles are revisited and updated. Driver concepts are evergreen, but specific behaviour evolves — we treat keeping things current as part of the job.</p>
             </article>
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
+      {/* Why we exist */}
       <section className="block">
         <div className="container">
+          <div className="split-row" style={{ alignItems: 'center' }}>
+            <div className="split-text">
+              <span className="section-kicker">Why we exist</span>
+              <h2 style={{ marginTop: '10px' }}>
+                Most driver advice online falls into two camps: dense documentation or pushy sales pages. We wanted a calm third option.
+              </h2>
+              <p style={{ marginTop: '16px' }}>
+                PrintSoftDrive explains what each kind of driver actually does, in plain English, and walks through the most common problems with patience instead of jargon. We don't host downloads, we don't run a help desk, and we don't take sponsorships from the companies we write about. That independence is the whole point — it's what lets us stay neutral and honest.
+              </p>
+            </div>
+            <div className="split-image">
+              <Image 
+                src="/settingUpdate.webp" 
+                alt="Why we exist" 
+                width={640} 
+                height={420}
+                style={{ borderRadius: 'var(--radius-xl)' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What you'll find here */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
+        <div className="container">
+          <div className="section-head" style={{ textAlign: 'center' }}>
+            <span className="section-kicker">What you'll find here</span>
+            <h2>Clear, Useful Content for Everyone</h2>
+          </div>
+          <div className="cards-3 stagger" style={{ marginTop: '48px' }}>
+            <article className="card animate-fade-in">
+              <div className="card-icon">
+                <Image 
+                  src="/assets/images/printer-what.svg" 
+                  alt="Driver overviews" 
+                  width={36} 
+                  height={36}
+                />
+              </div>
+              <h3>Driver Overviews</h3>
+              <p>For every major hardware family — graphics, audio, network, USB, system, and output devices.</p>
+            </article>
+            <article className="card animate-fade-in">
+              <div className="card-icon">
+                <Image 
+                  src="/assets/images/audio-fix.svg" 
+                  alt="Knowledge hub" 
+                  width={36} 
+                  height={36}
+                />
+              </div>
+              <h3>Knowledge Hub</h3>
+              <p>Calm, ordered fixes for the symptoms readers ask about most.</p>
+            </article>
+            <article className="card animate-fade-in">
+              <div className="card-icon">
+                <Image 
+                  src="/assets/images/bluetooth-what.svg" 
+                  alt="Friendly blog" 
+                  width={36} 
+                  height={36}
+                />
+              </div>
+              <h3>Friendly Blog</h3>
+              <p>Short explainers about how your computer really works underneath.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* What we are not */}
+      <section className="block">
+        <div className="container">
+          <div className="section-head" style={{ textAlign: 'center' }}>
+            <span className="section-kicker">What we are not</span>
+            <h2>Transparent About Our Limits</h2>
+          </div>
+          <div className="cta-card" style={{ marginTop: '48px', background: 'var(--bg-light)', color: 'var(--text-main)', border: 'none' }}>
+            <p style={{ color: 'var(--text-body)', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+              We are not affiliated with any hardware maker, software publisher, or operating-system vendor. We don't sell software, offer paid repairs, or provide one-to-one technical support. When you need to change something on your own machine, the safest source is always the official documentation from your device maker — and we'll always point you there.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* A note on our tone */}
+      <section className="block" style={{ background: 'var(--bg-light)' }}>
+        <div className="container">
+          <div className="section-head" style={{ textAlign: 'center' }}>
+            <span className="section-kicker">A note on our tone</span>
+            <h2>Plain English, Always</h2>
+          </div>
+          <p style={{ maxWidth: '600px', margin: '24px auto 0', textAlign: 'center' }}>
+            Friendly, never condescending. If a sentence here ever reads like it was written to impress rather than to help, we got it wrong — and we'd genuinely like to know.
+          </p>
+        </div>
+      </section>
+
+      {/* Get in touch / CTA */}
+      <section className="block" style={{ paddingTop: 0 }}>
+        <div className="container">
           <div className="cta-card">
-            <h2>Ready to Explore the Overview?</h2>
-            <p>Pick a hardware category and start reading — every overview is bite-sized, friendly, and built to actually make sense.</p>
+            <h2>Ready to Explore or Get In Touch?</h2>
             <div className="cta-actions">
-              <Link href="/drivers/" className="btn btn-primary" style={{ background: '#fff', color: 'var(--navy)' }}>Browse Driver Topics</Link>
-              <Link href="/contact/" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>Send Us a Question</Link>
+              <Link href="/drivers/" className="btn btn-primary" style={{ background: '#fff', color: 'var(--navy)' }}>Browse drivers</Link>
+              <Link href="/contact/" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>Get in touch</Link>
             </div>
           </div>
         </div>

@@ -20,9 +20,9 @@ export default function PrinterDrivers() {
                 <li aria-current="page">Printer Drivers</li>
               </ol>
             </nav>
-            <span className="section-kicker">Printer drivers</span>
-            <h1>The Translator Between Your Document and the <span style={{ color: 'var(--primary)' }}>Printed Page</span></h1>
-            <p className="hero-lede">You click Print, and a small chain of software springs into action — formatting the page, queueing the job, and speaking your printer's exact language. Here's how it works, and how to un-jam it when it doesn't.</p>
+            <span className="hero-badge"><span className="hero-badge-dot" />Printer drivers</span>
+            <h1>The Translator Between Your Document and the <span className="gradient-text">Printed Page</span></h1>
+            <p className="hero-lede">You click Print, and a small chain of software springs into action — formatting the page, queueing the job, and speaking your printer's exact language. Here’s how it works, and how to un‑jam it when it doesn’t.</p>
           </div>
         </div>
       </section>
