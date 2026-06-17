@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import DriverDetails from '@/components/DriverDetails'
 
 export const metadata: Metadata = {
   title: 'Device Drivers Explained — Every Family | PrintSoftDrive',
@@ -74,41 +75,11 @@ export default function Drivers() {
             <h2>Explore Every Driver Family</h2>
             <p>From printers to chipsets, every hardware category has a guide written in simple, straightforward language.</p>
           </div>
-          <div className="grid grid-auto-3">
-            {driverFamilies.map((driver, idx) => (
-              <Link key={driver.id} href={`/drivers/${driver.id}/`} className="card driver-card">
-                <div className="driver-thumb" style={{
-                  height: '180px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  background: 'var(--bg-light)',
-                  borderRadius: 'var(--radius-sm)',
-                  marginBottom: '16px'
-                }}>
-                  <Image
-                    src={driver.image}
-                    alt={driver.name}
-                    width={140}
-                    height={140}
-                    priority={idx < 3}
-                    loading={idx < 3 ? 'eager' : 'lazy'}
-                    style={{ objectFit: 'contain' }}
-                  />
-                </div>
-                <div className="section-kicker" style={{ marginTop: '10px', marginBottom: '10px' }}>Guide</div>
-                <h3>{driver.name}</h3>
-                <p>{driver.desc}</p>
-                <div className="more">
-                  Read more
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
         </div>
+        {/* Driver Details */}
+        <section className="block" id="driver-details">
+          <DriverDetails />
+        </section>
       </section>
 
       {/* Driver Locations */}
@@ -132,11 +103,11 @@ export default function Drivers() {
                   marginBottom: '16px'
                 }}>
                   <Image
-                    src="/deviceManager.webp"
+                    src="/assets/images/windows-logo.svg"
                     alt="Windows Device Manager"
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'contain', padding: '20px' }}
                     priority
                   />
                 </div>
@@ -154,11 +125,11 @@ export default function Drivers() {
                   marginBottom: '16px'
                 }}>
                   <Image
-                    src="/settingUpdate.webp"
+                    src="/assets/images/system-fix.svg"
                     alt="Settings & Updates"
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    style={{ objectFit: 'contain', padding: '20px' }}
                     priority
                   />
                 </div>

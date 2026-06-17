@@ -41,7 +41,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="hdr__logo">
-            <Image src="/logo.png" alt="PrintSoftDrive" width={190} height={38} priority
+            <Image src="/logo.jpg" alt="PrintSoftDrive" width={190} height={38} priority
               style={{ height: scrolled ? '28px' : '34px', width: 'auto', transition: 'height .25s ease' }} />
           </Link>
 

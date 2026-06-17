@@ -1,572 +1,515 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import type { Metadata } from 'next'
-import Marquee from '../components/Marquee'
-import HomeTabs from '../components/HomeTabs'
-import ThemeIcon from '../components/ThemeIcon'
-
-export const metadata: Metadata = {
-  title: 'PrintSoftDrive — Device Drivers Explained in Plain English',
-  description: 'PrintSoftDrive explains printer, scanner, graphics, audio, Wi-Fi, Bluetooth, and USB drivers in plain English, with calm fixes for common problems.',
-}
-
-const drivers = [
-  { id: 'printer',   name: 'Printer Drivers',   desc: 'Installation, updates, compatibility and troubleshooting guides.',        icon: 'printer', tag: 'Output' },
-  { id: 'scanner',   name: 'Scanner Drivers',   desc: 'Learn how scanners communicate with your operating system.',                    icon: 'scanner', tag: 'Input' },
-  { id: 'graphics',  name: 'Graphics Drivers',  desc: 'GPU updates, gaming performance and display optimization.',                             icon: 'graphics', tag: 'Performance' },
-  { id: 'audio',     name: 'Audio Drivers',     desc: 'Fix sound issues and understand audio device communication.',                        icon: 'audio', tag: 'Real-time' },
-  { id: 'network',   name: 'Network Drivers',   desc: 'Wi-Fi, Ethernet and connectivity troubleshooting resources.',                      icon: 'network', tag: 'Connectivity' },
-  { id: 'bluetooth', name: 'Bluetooth Drivers', desc: 'Pairing, connectivity and Bluetooth device support.',                             icon: 'bluetooth', tag: 'Wireless' },
-  { id: 'usb',       name: 'USB Drivers',       desc: 'Device recognition, installation and USB troubleshooting.',                            icon: 'usb', tag: 'Plug & Play' },
-]
-
-const quickCategories = [
-  { id: 'printer', name: 'Printer Drivers', desc: 'Why your device needs special software, what goes wrong, and how to keep output painless across home, office, and shared setups.', icon: 'printer' },
-  { id: 'graphics', name: 'Graphics Drivers', desc: 'How GPUs, displays, and modern apps stay in sync — and why a tiny driver update can transform game performance.', icon: 'graphics' },
-  { id: 'audio', name: 'Audio Drivers', desc: 'The quiet software shaping every chime, voice call, and music track that comes out of your speakers and headphones.', icon: 'audio' },
-  { id: 'network', name: 'Network Drivers', desc: 'The bridge between your operating system and the wired or wireless chip that connects you to the wider internet.', icon: 'network' },
-  { id: 'usb', name: 'USB & Devices', desc: 'How keyboards, mice, drives, webcams, and controllers get recognised the instant you plug them in — and what to try when they don\'t.', icon: 'usb' },
-  { id: 'printer', name: 'System Drivers', desc: 'The chipset, CPU, and storage drivers you never see — but always feel — making your machine boot fast and run smoothly.', icon: 'system' },
-]
-
-const commonProblems = [
-  { title: 'Driver Conflicts', desc: 'Driver conflicts occur when two or more drivers compete for the same hardware resource, such as an interrupt request line, an input/output port address range, or memory-mapped region.' },
-  { title: 'Outdated Drivers', desc: 'Outdated drivers represent one of the most preventable yet frequently encountered sources of hardware and system problems. As operating systems evolve, they introduce new kernel APIs, security requirements, and interface specifications.' },
-  { title: 'Corrupted Driver Files', desc: 'Driver file corruption can occur due to several causes: incomplete driver installation interrupted by a power failure, disk errors writing driver files to storage, malware that intentionally modifies driver binaries, or disk sectors that develop read errors after the driver was written to them.' },
-  { title: 'Missing Drivers After OS Install', desc: 'After installing a new operating system, certain hardware components may not be recognized or may function only with basic generic drivers that lack the device\'s full feature set.' },
-  { title: 'Incompatible Drivers', desc: 'Incompatible drivers occur when a driver designed for one version of an operating system or hardware model is used with a different version.' },
-  { title: 'Signed vs Unsigned Drivers', desc: 'Driver signing is a verification mechanism that uses digital certificates to confirm that a driver package has been tested and certified by its developer, and that the driver files haven\'t been altered since they were signed.' },
-]
-
-const driverTypes = [
-  { title: 'Kernel-Mode Drivers', desc: 'Kernel-mode drivers work at the operating system\'s most trusted level, with direct access to hardware, memory, and system resources.', link: '/drivers/printer' },
-  { title: 'User-Mode Drivers', desc: 'User-mode drivers operate in a safer, isolated part of the system, separated from the core OS. If something goes wrong, the driver can crash without taking the whole system down.', link: '/drivers/usb' },
-  { title: 'Printer & Output Drivers', desc: 'Specialized drivers that handle communication with printers and other output devices.', link: '/drivers/printer' },
-]
+import Link from "next/link";
+import HomeTabs from "../components/HomeTabs";
+import Image from "next/image";
+import { ArrowRight, Printer, ShieldCheck, Layers, Monitor, Volume2, Wifi, Bluetooth, Usb, HardDrive, Cpu, Settings, Keyboard, Languages, Heart, ChevronRight, FileQuestion, BookOpen, AlertTriangle, MonitorPlay, Zap, Server, Globe, Search, Wrench, Download, Image as ImageIcon } from "lucide-react";
 
 export default function Home() {
+  const driverCategories = [
+    { name: "Kernel-Mode Drivers", desc: "Low-level drivers with direct hardware and memory access.", icon: ShieldCheck, href: "/drivers/kernel-mode-drivers" },
+    { name: "User-Mode Drivers", desc: "Safer drivers that run separately from the operating system kernel.", icon: Layers, href: "/drivers/user-mode-drivers" },
+    { name: "Printer Drivers", desc: "Installation, updates, compatibility and troubleshooting guides.", icon: Printer, href: "/drivers/printer-drivers" },
+    { name: "Graphics Drivers", desc: "GPU updates, gaming performance and display optimization.", icon: Monitor, href: "/drivers/graphics-drivers" },
+    { name: "Audio Drivers", desc: "Fix sound issues and understand audio device communication.", icon: Volume2, href: "/drivers/audio-drivers" },
+    { name: "Network Drivers", desc: "Wi-Fi, Ethernet and connectivity troubleshooting resources.", icon: Wifi, href: "/drivers/network-drivers" },
+    { name: "Bluetooth Drivers", desc: "Pairing, connectivity and Bluetooth device support.", icon: Bluetooth, href: "/drivers/bluetooth-drivers" },
+    { name: "USB Drivers", desc: "Device recognition, installation and USB troubleshooting.", icon: Usb, href: "/drivers/usb-drivers" },
+    { name: "Chipset Drivers", desc: "The foundation that connects all your hardware together.", icon: Cpu, href: "/drivers/chipset-drivers" },
+    { name: "Storage Drivers", desc: "SSD, HDD, and external storage performance and reliability.", icon: HardDrive, href: "/drivers/storage-drivers" },
+    { name: "Input Devices", desc: "Keyboards, mice, touchpads, and game controller support.", icon: Keyboard, href: "/drivers/input-devices" },
+    { name: "Virtual Device Drivers", desc: "Software-created devices used by virtualization and emulation tools.", icon: Server, href: "/drivers/virtual-device-drivers" },
+  ];
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="block" style={{ 
-        paddingTop: '120px', 
-        paddingBottom: '100px',
-        backgroundImage: 'url(/assets/img/home-1/hero-bg.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        position: 'relative'
-      }}>
-        {/* Overlay for better text readability */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(135deg, rgba(10,15,30,0.85) 0%, rgba(37,99,235,0.3) 100%)'
-        }}></div>
-        <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
-            <span className="section-kicker" style={{ background: 'rgba(255,255,255,0.15)', color: '#fff', border: 'none' }}>Printer Drivers Hub</span>
-            <h1 style={{ 
-              marginTop: '24px', 
-              marginBottom: '20px', 
-              color: '#fff', 
-              textShadow: '0 2px 8px rgba(0,0,0,0.3)'
-            }}>
-              Printer Drivers, Explained Clearly.
-            </h1>
-            <p style={{ 
-              fontSize: '1.15rem', 
-              color: 'rgba(255,255,255,0.85)', 
-              marginBottom: '40px',
-              textShadow: '0 1px 4px rgba(0,0,0,0.2)'
-            }}>
-              Learn how printer drivers work, troubleshoot issues, and find practical solutions explained in simple language.
-            </p>
-            <div className="hero-actions" style={{ justifyContent: 'center', gap: '20px' }}>
-              <Link href="/drivers/" className="btn btn-primary" style={{
-                background: '#fff',
-                color: 'var(--primary)'
-              }}>
-                Explore Drivers
-              </Link>
-              <Link href="/knowledge/" className="btn btn-outline" style={{
-                color: '#fff',
-                borderColor: 'rgba(255,255,255,0.4)'
-              }}>
-                Learn More
-              </Link>
-            </div>
-          </div>
+      {/* 1. Hero Section */}
+      <section className="relative overflow-hidden bg-white pt-16 pb-12 sm:pt-24 sm:pb-16 lg:pt-32 lg:pb-24">
+        {/* Background Gradients */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-7xl h-[500px] pointer-events-none">
+          <div className="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-blue-100/50 blur-[100px]" />
+          <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-sky-100/50 blur-[100px]" />
         </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="block" style={{ paddingTop: '40px', paddingBottom: '80px' }}>
-        <div className="container">
-          <div className="stats-bar">
-            <div className="stat-item">
-              <span className="stat-number">500+</span>
-              <span className="stat-label">Driver Guides</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">100+</span>
-              <span className="stat-label">Printer Models</span>
-            </div>
-            <div className="stat-item">
-              <span className="stat-number">24/7</span>
-              <span className="stat-label">Knowledge Access</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Knowledge Center Section */}
-      <section className="block">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">Driver Knowledge Center</span>
-            <h2>Guides & Troubleshooting</h2>
-          </div>
-          <div className="grid grid-auto-3">
-            <Link href="/drivers/printer" className="card">
-              <div className="card-icon">
-                <ThemeIcon type="printer" size={44} />
-              </div>
-              <h3>Printer Setup Guides</h3>
-              <p>Step-by-step guides for setting up printers on all major operating systems.</p>
-            </Link>
-            <Link href="/knowledge" className="card">
-              <div className="card-icon">
-                <ThemeIcon type="usb" size={44} />
-              </div>
-              <h3>Driver Installation Help</h3>
-              <p>Learn how to safely install and update drivers from trusted sources.</p>
-            </Link>
-            <Link href="/knowledge" className="card">
-              <div className="card-icon">
-                <ThemeIcon type="settings" size={44} />
-              </div>
-              <h3>Error Fix Tutorials</h3>
-              <p>Troubleshoot common driver errors with clear, actionable steps.</p>
-            </Link>
-          </div>
-          <div style={{ textAlign: 'center', marginTop: '32px' }}>
-            <div style={{ display: 'inline-flex', gap: '12px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {['Audio & Sound', 'Wi-Fi & Networking', 'USB & Devices', 'Storage & SSD', 'Bluetooth', 'Chipset & System'].map((tag, i) => (
-                <span key={i} style={{ 
-                  background: 'var(--primary-soft)', 
-                  color: 'var(--primary)', 
-                  padding: '6px 16px', 
-                  borderRadius: '999px', 
-                  fontSize: '13px', 
-                  fontWeight: '600',
-                  border: '1px solid rgba(37,99,235,0.15)'
-                }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Marquee */}
-      <Marquee />
-
-      {/* What is a Driver Section */}
-      <section className="block">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">The Basics</span>
-            <h2>So... What Exactly Is a Driver?</h2>
-            <p>Understanding drivers doesn't require a computer science degree. Start with these simple ideas.</p>
-          </div>
-          <HomeTabs />
-        </div>
-      </section>
-
-      {/* Driver Categories Grid */}
-      <section className="block">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">What We Cover</span>
-            <h2>Explore Driver Categories</h2>
-            <p>Learn, troubleshoot and understand every major driver category through simple, practical explanations.</p>
-          </div>
-
-          <div className="grid grid-auto-3">
-            {drivers.map(d => (
-              <Link key={d.id} href={`/drivers/${d.id}/`} className="driver-tile">
-                <span className="driver-tile-tag">{d.tag}</span>
-                <div className="driver-tile-icon">
-                  <ThemeIcon type={d.icon} size={48} />
-                </div>
-                <h3>{d.name}</h3>
-                <p className="driver-tile-summary">{d.desc}</p>
-                <span className="driver-tile-toggle">
-                  Read more
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                    <path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Bridge Between Software & Hardware */}
-      <section className="block" style={{ background: 'var(--bg-light)' }}>
-        <div className="container">
-          <div className="split">
+        
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
+          <div className="grid gap-8 sm:gap-12 md:grid-cols-[1.1fr_0.9fr] items-start">
+            {/* Left Content */}
             <div>
-              <span className="section-kicker">Why Drivers Matter</span>
-              <h2 style={{ marginBottom: '20px' }}>The bridge between software and hardware.</h2>
-              <p style={{ marginBottom: '24px' }}>
+              <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm shadow-slate-200/50">
+                <span className="h-2 w-2 rounded-full bg-blue-500 shrink-0"></span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Trusted Driver Knowledge Base</span>
+              </div>
+              <h1 className="max-w-3xl text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight sm:leading-[1.1] tracking-tight text-slate-900">
+                Printer Drivers,
+                <span className="block bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Explained Clearly.</span>
+              </h1>
+              <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg lg:text-xl leading-7 sm:leading-8 text-slate-600">
+                Learn how printer drivers work, troubleshoot issues, and find practical solutions explained in simple language.
+              </p>
+              
+              <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <Link
+                  className="group flex justify-center sm:justify-start items-center gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-6 sm:px-8 py-3.5 sm:py-4 font-medium text-white text-sm sm:text-base transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-200"
+                  href="/drivers"
+                >
+                  Explore Drivers
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+                <Link
+                  className="flex justify-center sm:justify-start rounded-xl sm:rounded-2xl border border-blue-100 bg-white px-6 sm:px-8 py-3.5 sm:py-4 font-medium text-blue-700 text-sm sm:text-base transition-all hover:bg-slate-50 hover:border-blue-200"
+                  href="/knowledge"
+                >
+                  Learn More
+                </Link>
+              </div>
+
+              <div className="mt-8 sm:mt-12 grid grid-cols-3 gap-4 sm:gap-8 sm:flex sm:flex-wrap">
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">500+</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Driver Guides</p>
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">100+</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Printer Models</p>
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">24/7</h3>
+                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Knowledge Access</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content / Floating Card */}
+            <div className="relative w-full md:block">
+              <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/40 transform transition-all duration-500 hover:-translate-y-2">
+                <div className="mb-6 flex items-center gap-4">
+                  <div className="flex h-12 sm:h-14 w-12 sm:w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shrink-0">
+                    <Printer className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900">Driver Knowledge Center</h3>
+                    <p className="text-sm text-slate-500">Guides & Troubleshooting</p>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  {["Printer Setup Guides", "Driver Installation Help", "Error Fix Tutorials", "Compatibility Resources"].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-colors hover:bg-slate-100">
+                      <ShieldCheck className="h-5 w-5 text-blue-600 shrink-0" />
+                      <span className="text-sm font-medium text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 rounded-2xl border border-blue-100 bg-blue-50/50 p-5 text-center">
+                  <p className="text-2xl sm:text-3xl font-black text-blue-900">1000+</p>
+                  <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mt-1">Monthly Readers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Banner */}
+      <section className="relative overflow-hidden border-y border-blue-100 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-6 sm:py-8">
+  <div className="relative mx-auto max-w-7xl px-6 text-center overflow-hidden">
+    <div className="flex flex-nowrap gap-8 scroll-left text-sm font-bold text-white">
+      <span className="flex items-center gap-2"><Volume2 className="h-4 w-4 text-white" /> Audio &amp; Sound</span>
+      <span className="flex items-center gap-2"><Wifi className="h-4 w-4 text-white" /> Wi-Fi &amp; Networking</span>
+      <span className="flex items-center gap-2"><Usb className="h-4 w-4 text-white" /> USB &amp; Devices</span>
+      <span className="flex items-center gap-2"><HardDrive className="h-4 w-4 text-white" /> Storage &amp; SSD</span>
+      <span className="flex items-center gap-2"><Bluetooth className="h-4 w-4 text-white" /> Bluetooth</span>
+      <span className="flex items-center gap-2"><Cpu className="h-4 w-4 text-white" /> Chipset &amp; System</span>
+      <span className="flex items-center gap-2"><Monitor className="h-4 w-4 text-white" /> Graphics &amp; GPU</span>
+    </div>
+  </div>
+</section>
+
+      {/* 3. What is a Driver Section */}
+      <section className="relative overflow-hidden py-16 sm:py-24 bg-slate-50">
+        <div className="relative mx-auto max-w-7xl px-6">
+          <div className="mb-8 flex justify-center">
+            <span className="rounded-full border border-blue-200 bg-blue-100 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-700 shadow-sm">
+              The Basics
+            </span>
+          </div>
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">So... What Exactly Is a Driver?</h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
+              Understanding drivers doesn't require a computer science degree. Start with these three simple ideas and you'll understand how hardware and software work together.
+            </p>
+          </div>
+
+          
+
+          <div className="mt-12 rounded-3xl border border-blue-100 bg-white p-8 md:p-12 shadow-xl shadow-blue-900/5">
+            <HomeTabs />
+              <div>
+                <h3 className="mb-8 text-3xl font-bold text-slate-900 md:text-4xl">Drivers Are The Translators Of Your Computer</h3>
+                <div className="space-y-6 text-lg leading-9 text-slate-600">
+                  <p>Your operating system and your hardware don't naturally speak the same language. A driver acts as the translator between them, ensuring every command is understood correctly.</p>
+                  <p>When you click Print, connect a webcam, adjust your speakers, or launch a game, the driver converts those requests into instructions that the hardware can understand and execute.</p>
+                  <p>Without drivers, your computer might detect hardware, but it wouldn't know how to use it effectively. Drivers make communication possible between software and physical devices.</p>
+                </div>
+              </div>
+              <div>
+                <div className="sticky top-24 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-700 via-blue-600 to-sky-500 p-8 text-white shadow-lg shadow-blue-600/20">
+                  <div className="mb-6">
+                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-100">Quick Summary</p>
+                  </div>
+                  <ul className="space-y-5">
+                    <li className="flex gap-3"><ChevronRight className="h-5 w-5 shrink-0 mt-1 text-blue-300" /> <span className="leading-7 font-medium">Translates operating system commands.</span></li>
+                    <li className="flex gap-3"><ChevronRight className="h-5 w-5 shrink-0 mt-1 text-blue-300" /> <span className="leading-7 font-medium">Allows hardware and software to communicate.</span></li>
+                    <li className="flex gap-3"><ChevronRight className="h-5 w-5 shrink-0 mt-1 text-blue-300" /> <span className="leading-7 font-medium">Essential for every major device.</span></li>
+                  </ul>
+                  <div className="mt-8 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm">
+                    <p className="text-sm leading-6 text-blue-50 font-medium">Drivers work quietly behind the scenes, but they are one of the most important pieces of software on your computer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </section>
+
+      {/* 4. Explore Driver Categories */}
+      <section className="relative overflow-hidden bg-white py-16 sm:py-24 border-b border-slate-200">
+        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
+          <div className="mx-auto mb-12 sm:mb-16 max-w-3xl text-center">
+            <span className="inline-flex rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-600 shadow-sm">
+              What We Cover
+            </span>
+            <h2 className="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
+              Explore Driver Categories
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Learn, troubleshoot and understand every major driver category through simple, practical explanations.
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {driverCategories.slice(0, 8).map((category) => {
+              const Icon = category.icon;
+              return (
+                <Link
+                  key={category.name}
+                  href={category.href}
+                  className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-900/5 hover:border-blue-300"
+                >
+                  <div className="mb-5 flex items-center justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-md">
+                      <Icon className="h-6 w-6 text-white" />
+                    </div>
+                    <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700">Guide</span>
+                  </div>
+                  <h3 className="mb-3 text-xl font-bold text-slate-900">{category.name}</h3>
+                  <p className="mb-6 text-sm leading-7 text-slate-600">
+                    {category.desc}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm font-bold text-blue-600">
+                    Read more
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Why Drivers Matter */}
+      <section className="py-16 sm:py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/assets/images/grid-pattern.svg')] opacity-10 bg-center"></div>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-sm font-bold text-blue-400 uppercase tracking-wider block mb-4">Why Drivers Matter</span>
+              <h2 className="text-4xl sm:text-5xl text-white font-bold mb-6 leading-tight">The bridge between software and hardware.</h2>
+              <p className="text-lg text-slate-300 mb-8 leading-relaxed">
                 Every click, print command, and device action needs a driver working behind the scenes. Drivers translate instructions between your operating system and physical hardware.
               </p>
-              <ul className="ticks">
-                <li>Understand what drivers actually do</li>
-                <li>Fix common device and connectivity issues</li>
-                <li>Clear explanations without technical jargon</li>
+              <ul className="space-y-4 mb-10">
+                {['Understand what drivers actually do', 'Fix common device and connectivity issues', 'Clear explanations without technical jargon'].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <div className="flex h-6 w-6 rounded-full bg-blue-500/20 items-center justify-center">
+                      <ChevronRight className="h-4 w-4 text-blue-400" />
+                    </div>
+                    <span className="text-slate-200">{item}</span>
+                  </li>
+                ))}
               </ul>
-              <div style={{ display: 'flex', gap: '16px', marginTop: '32px' }}>
-                <div style={{ flex: 1, background: '#fff', padding: '24px', borderRadius: '14px', border: '1px solid var(--border)', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--primary)' }}>100+</div>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Guides</div>
+            </div>
+            
+            <div className="grid gap-6 sm:grid-cols-2">
+              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl">
+                <MonitorPlay className="h-10 w-10 text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold mb-2">Software</h3>
+                <p className="text-slate-400 text-sm">Apps & Operating System</p>
+              </div>
+              <div className="bg-blue-600 p-8 rounded-3xl shadow-lg shadow-blue-900/50 transform sm:translate-y-8">
+                <Languages className="h-10 w-10 text-white mb-4" />
+                <h3 className="text-xl font-bold mb-2">Driver</h3>
+                <p className="text-blue-200 text-sm">Real-time Translator</p>
+              </div>
+              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl">
+                <Printer className="h-10 w-10 text-blue-400 mb-4" />
+                <h3 className="text-xl font-bold mb-2">Hardware</h3>
+                <p className="text-slate-400 text-sm">Printers & Devices</p>
+              </div>
+              <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl transform sm:translate-y-8">
+                <div className="grid grid-cols-2 gap-4 h-full">
+                  <div>
+                    <p className="text-3xl font-bold text-white mb-1">100+</p>
+                    <p className="text-xs text-slate-400 uppercase">Guides</p>
+                  </div>
+                  <div>
+                    <p className="text-3xl font-bold text-white mb-1">24/7</p>
+                    <p className="text-xs text-slate-400 uppercase">Resources</p>
+                  </div>
                 </div>
-                <div style={{ flex: 1, background: '#fff', padding: '24px', borderRadius: '14px', border: '1px solid var(--border)', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--primary)' }}>24/7</div>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Resources</div>
-                </div>
-                <div style={{ flex: 1, background: '#fff', padding: '24px', borderRadius: '14px', border: '1px solid var(--border)', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', fontWeight: '900', color: 'var(--primary)' }}>Simple</div>
-                  <div style={{ fontSize: '11.5px', fontWeight: '700', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Explanations</div>
-                </div>
-              </div>
-            </div>
-            <div className="split-media">
-              <Image
-                src="/windows.webp"
-                alt="The bridge between software and hardware"
-                width={600}
-                height={450}
-                style={{ borderRadius: 'var(--radius-xl)' }}
-                priority
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Where Do Drivers Live */}
-      <section className="block">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">Driver Locations</span>
-            <h2>Where Do Drivers Actually Live on Your PC?</h2>
-            <p>Spoiler: they're not hiding in some secret folder. Your computer keeps them in a few well-known places — and once you know where to look, you can check, manage, and tidy them up like a pro.</p>
-          </div>
-          <div className="grid grid-auto-3">
-            <div className="card">
-              <div className="card-icon">
-                <ThemeIcon type="windows" size={44} />
-              </div>
-              <h3>Inside the Device Manager</h3>
-              <p>This is the friendliest place to start on a Windows PC. Right-click the Start button and pick "Device Manager," and a tidy list of every piece of hardware on your machine appears — neatly grouped by category. Click any item and you can see its driver, check its version, update it, roll it back if a recent update caused trouble, or remove it entirely. It's like a backstage pass to the people running the show.</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">
-                <ThemeIcon type="settings" size={44} />
-              </div>
-              <h3>Through Settings & Updates</h3>
-              <p>On modern Windows systems, head to Settings, then Windows Update, then "Advanced options" and look for "Optional updates." Many driver updates quietly arrive here — already tested for your machine. On macOS, drivers are bundled into regular system updates, so just keep your OS current. On Linux, your distribution's package manager (or a built-in "Additional Drivers" tool) does the same job.</p>
-            </div>
-            <div className="card">
-              <div className="card-icon">
-                <ThemeIcon type="translator" size={44} />
-              </div>
-              <h3>The Hardware Maker's Website</h3>
-              <p>Every reputable hardware maker keeps a "Support" or "Drivers" section on its official website where you can download the very latest driver for your exact model. This is the go-to spot when you need a brand-new feature, a performance boost, or a fix for a specific bug. Always download directly from the official site — never from a random pop-up — and double-check the driver matches your operating system version.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How to Know Which Driver */}
-      <section className="block" style={{ background: 'var(--bg-light)' }}>
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">Driver Identification</span>
-            <h2>How to Know Which Driver You're Actually Using</h2>
-            <p>Curious which driver is in charge of your sound, your screen, or your network? It only takes a few clicks (or commands) to find out!</p>
-          </div>
-          <div className="grid grid-auto-3">
-            <div className="card">
-              <div style={{
-                width: '100%',
-                height: '160px',
-                position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'var(--primary-soft)',
-                borderRadius: 'var(--radius-sm)',
-                marginBottom: '24px',
-                padding: '5px',
-                border: '1px solid rgba(37,99,235,0.1)'
-              }}>
-                <Image 
-                  src="/windows.webp" 
-                  alt="Windows logo" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ 
-                    objectFit: 'contain',
-                    padding: '5px'
-                  }}
-                  priority 
-                />
-              </div>
-              <h3>On Windows</h3>
-              <div style={{ textAlign: 'left' }}>
-                <p style={{ marginBottom: '12px' }}><strong>Step 1:</strong> Press <code>Win + X</code> on your keyboard and select <strong>Device Manager</strong> from the menu (or right-click the Start button and choose Device Manager).</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 2:</strong> Expand the category for your device (e.g., "Display adapters" for graphics, "Audio inputs and outputs" for sound, "Network adapters" for Wi-Fi).</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 3:</strong> Right-click on your specific device (like "NVIDIA GeForce RTX 3080" or "Realtek Audio") and choose <strong>Properties</strong> from the context menu.</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 4:</strong> Click on the <strong>Driver</strong> tab at the top of the Properties window. Here you'll see:</p>
-                <ul style={{ listStyleType: 'disc', marginLeft: '24px', marginBottom: '12px', color: 'var(--text-body)' }}>
-                  <li style={{ marginBottom: '6px' }}><strong>Driver Provider:</strong> Who made the driver (e.g., NVIDIA, Intel, Microsoft)</li>
-                  <li style={{ marginBottom: '6px' }}><strong>Driver Date:</strong> When the driver was released</li>
-                  <li style={{ marginBottom: '6px' }}><strong>Driver Version:</strong> The exact version number (great for troubleshooting!)</li>
-                  <li style={{ marginBottom: '6px' }}><strong>Signer:</strong> Whether the driver is digitally signed</li>
-                </ul>
-                <p><strong>Pro tip:</strong> From this tab you can also update the driver, roll it back to a previous version, or uninstall it if needed!</p>
-              </div>
-            </div>
-            <div className="card">
-              <div style={{
-                width: '100%',
-                height: '160px',
-                position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'var(--primary-soft)',
-                borderRadius: 'var(--radius-sm)',
-                marginBottom: '24px',
-                padding: '5px',
-                border: '1px solid rgba(37,99,235,0.1)'
-              }}>
-                <Image 
-                  src="/mack.webp" 
-                  alt="macOS logo" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ 
-                    objectFit: 'contain',
-                    padding: '5px'
-                  }}
-                  priority 
-                />
-              </div>
-              <h3>On macOS</h3>
-              <div style={{ textAlign: 'left' }}>
-                <p style={{ marginBottom: '12px' }}><strong>Step 1:</strong> Click the Apple menu () in the top-left corner of your screen.</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 2:</strong> Select <strong>About This Mac</strong> from the dropdown menu.</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 3:</strong> A window will appear showing your macOS version. Click the <strong>More Info...</strong> button (on newer macOS versions, you may need to click "General" then "About" first).</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 4:</strong> At the bottom of the About window, click <strong>System Report...</strong> (or "System Report" in newer versions).</p>
-                <p style={{ marginBottom: '12px' }}><strong>Step 5:</strong> In the System Report window, use the left sidebar to find your device category:</p>
-                <ul style={{ listStyleType: 'disc', marginLeft: '24px', marginBottom: '12px', color: 'var(--text-body)' }}>
-                  <li style={{ marginBottom: '6px' }}><strong>Graphics/Displays:</strong> For your GPU (under "Hardware" → "Graphics/Displays")</li>
-                  <li style={{ marginBottom: '6px' }}><strong>Audio:</strong> For sound drivers (under "Hardware" → "Audio")</li>
-                  <li style={{ marginBottom: '6px' }}><strong>Network:</strong> For Wi-Fi/Ethernet (under "Network" → "Wi-Fi" or "Ethernet")</li>
-                  <li style={{ marginBottom: '6px' }}><strong>USB:</strong> For USB devices (under "Hardware" → "USB")</li>
-                </ul>
-                <p><strong>Pro tip:</strong> macOS manages most drivers automatically through system updates, so you'll usually see driver info bundled with your hardware details!</p>
-              </div>
-            </div>
-            <div className="card">
-              <div style={{
-                width: '100%',
-                height: '160px',
-                position: 'relative',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'var(--primary-soft)',
-                borderRadius: 'var(--radius-sm)',
-                marginBottom: '24px',
-                padding: '5px',
-                border: '1px solid rgba(37,99,235,0.1)'
-              }}>
-                <Image 
-                  src="/linux.webp" 
-                  alt="Linux logo" 
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ 
-                    objectFit: 'contain',
-                    padding: '5px'
-                  }}
-                  priority 
-                />
-              </div>
-              <h3>On Linux</h3>
-              <div style={{ textAlign: 'left' }}>
-                <p style={{ marginBottom: '12px' }}>Linux gives you powerful terminal commands to inspect your hardware and drivers. Open your terminal (Ctrl+Alt+T on most distros) and try these:</p>
-                <p style={{ marginBottom: '12px' }}><strong>1. List PCI devices and their drivers:</strong></p>
-                <pre style={{ 
-                  background: 'var(--bg-light)', 
-                  padding: '5px 5px', 
-                  borderRadius: '8px', 
-                  fontSize: '0.9rem', 
-                  marginBottom: '12px',
-                  overflowX: 'auto'
-                }}><code>lspci -k</code></pre>
-                <p style={{ marginBottom: '12px' }}>This shows all PCI devices (like your GPU, network card, etc.) and which kernel driver is in use for each one. Look for "Kernel driver in use:" lines!</p>
-                <p style={{ marginBottom: '12px' }}><strong>2. List USB devices:</strong></p>
-                <pre style={{ 
-                  background: 'var(--bg-light)', 
-                  padding: '5px 5px', 
-                  borderRadius: '8px', 
-                  fontSize: '0.9rem', 
-                  marginBottom: '12px',
-                  overflowX: 'auto'
-                }}><code>lsusb</code></pre>
-                <p style={{ marginBottom: '12px' }}>This gives details about all connected USB devices.</p>
-                <p style={{ marginBottom: '12px' }}><strong>3. List loaded kernel modules:</strong></p>
-                <pre style={{ 
-                  background: 'var(--bg-light)', 
-                  padding: '5px 5px', 
-                  borderRadius: '8px', 
-                  fontSize: '0.9rem', 
-                  marginBottom: '12px',
-                  overflowX: 'auto'
-                }}><code>lsmod</code></pre>
-                <p style={{ marginBottom: '12px' }}>This shows all currently loaded driver modules.</p>
-                <p style={{ marginBottom: '12px' }}><strong>4. Get detailed system info:</strong></p>
-                <pre style={{ 
-                  background: 'var(--bg-light)', 
-                  padding: '5px 8px', 
-                  borderRadius: '8px', 
-                  fontSize: '0.9rem', 
-                  overflowX: 'auto'
-                }}><code>sudo lshw</code></pre>
-                <p><strong>Pro tip:</strong> For a more user-friendly experience, many Linux distros also have GUI tools like "System Settings" → "About" or "Hardinfo" (install it with your package manager if needed)!</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Common Problems */}
-      <section className="block">
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">Troubleshooting</span>
-            <h2>Common Driver-Related Problems</h2>
-            <p>Understanding these common driver issues helps in diagnosing and resolving hardware and software problems.</p>
-          </div>
-          <div className="grid grid-auto-2">
-            {commonProblems.map((problem, i) => (
-              <div key={i} className="card">
-                <h3>{problem.title}</h3>
-                <p>{problem.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pick a Hardware Category */}
-      <section className="block" style={{ background: 'var(--bg-light)' }}>
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">Helpful Topics We Cover</span>
-            <h2>Pick a Hardware Category and Dive In</h2>
-            <p>Each overview is bite-sized, friendly, and written to make sense the very first time you read it.</p>
-          </div>
-          <div className="grid grid-auto-3">
-            {quickCategories.map((cat, i) => (
-              <Link key={i} href={`/drivers/${cat.id}/`} className="card">
-                <div className="card-icon">
-                  <ThemeIcon type={cat.icon} size={44} />
-                </div>
-                <h3>{cat.name}</h3>
-                <p>{cat.desc}</p>
-                <div className="more">
-                  Read More
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ marginLeft: '6px' }}>
-                    <path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* About PrintSoftDrive */}
-      <section className="block">
-        <div className="container">
-          <div className="cta-band">
-            <span className="section-kicker" style={{ color: '#fff', background: 'rgba(255,255,255,0.1)', borderColor: 'rgba(255,255,255,0.15)' }}>About PrintSoftDrive</span>
-            <h2 style={{ color: '#fff', marginBottom: '16px' }}>A Friendly Voice in a Noisy Tech World</h2>
-            <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto 32px' }}>
-              We are a small, independent education project built around one stubborn idea — technology should not feel intimidating. Every overview on this site is written to make sense the first time you read it.
+      {/* 6. Driver Locations */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">Driver Locations</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Where Do Drivers Actually Live on Your PC?</h2>
+            <p className="text-lg text-slate-600">
+              Spoiler: they're not hiding in some secret folder. Your computer keeps them in a few well-known places — and once you know where to look, you can check, manage, and tidy them up like a pro.
             </p>
-            <ul style={{ 
-              listStyle: 'none', 
-              padding: 0, 
-              maxWidth: '600px', 
-              margin: '0 auto 32px',
-              textAlign: 'left',
-              color: 'rgba(255,255,255,0.8)'
-            }}>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                <span style={{ fontSize: '1.5rem' }}>✓</span>
-                <span>Independent and free to read, always</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                <span style={{ fontSize: '1.5rem' }}>✓</span>
-                <span>Plain-English first, technical accuracy second to none</span>
-              </li>
-              <li style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{ fontSize: '1.5rem' }}>✓</span>
-                <span>Privacy-respecting — no aggressive trackers or sold data</span>
-              </li>
-            </ul>
-            <Link href="/about" className="btn btn-ghost-white">
-              Read More About Us
-            </Link>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-8">
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-lg transition-all flex flex-col">
+              <div className="relative h-48 w-full">
+                <Image src="/deviceManager.webp" alt="Inside the Device Manager" fill className="object-cover" />
+              </div>
+              <div className="p-8 flex-1">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Inside the Device Manager</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  This is the friendliest place to start on a Windows PC. Right-click the Start button and pick "Device Manager," and a tidy list of every piece of hardware on your machine appears. Click any item and you can see its driver, check its version, update it, roll it back, or remove it entirely.
+                </p>
+              </div>
+            </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-lg transition-all flex flex-col">
+              <div className="relative h-48 w-full bg-slate-200">
+                <Image src="/settingUpdate.webp" alt="Through Settings & Updates" fill className="object-cover" />
+              </div>
+              <div className="p-8 flex-1">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">Through Settings & Updates</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  On modern Windows systems, head to Settings, then Windows Update, then "Advanced options" and look for "Optional updates." Many driver updates quietly arrive here. On macOS, drivers are bundled into regular system updates. On Linux, your distribution's package manager does the same job.
+                </p>
+              </div>
+            </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-3xl overflow-hidden hover:shadow-lg transition-all flex flex-col">
+              <div className="relative h-48 w-full bg-slate-200">
+                <Image src="/website.jpg" alt="The Hardware Maker's Website" fill className="object-cover" />
+              </div>
+              <div className="p-8 flex-1">
+                <h3 className="text-xl font-bold text-slate-900 mb-4">The Hardware Maker's Website</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  Every reputable hardware maker keeps a "Support" or "Drivers" section on its official website where you can download the very latest driver for your exact model. Always download directly from the official site — never from a random pop-up.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Understand Every Type of Driver */}
-      <section className="block" style={{ paddingBottom: '120px' }}>
-        <div className="container">
-          <div className="section-head">
-            <span className="section-kicker">Driver Deep Dive</span>
-            <h2>Understand Every Type of Driver</h2>
-            <p>Explore the different kinds of drivers that make your hardware work.</p>
+      {/* 7. Driver Identification */}
+      <section className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">Driver Identification</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">How to Know Which Driver You're Actually Using</h2>
+            <p className="text-lg text-slate-600">
+              Curious which driver is in charge of your sound, your screen, or your network? It only takes a few clicks to find out — no special tools required.
+            </p>
           </div>
-          <div className="grid grid-auto-3">
-            {driverTypes.map((type, i) => (
-              <Link key={i} href={type.link} className="card">
-                <h3>{type.title}</h3>
-                <p>{type.desc}</p>
-                <div className="more">
-                  Learn more
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" style={{ marginLeft: '6px' }}>
-                    <path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+
+          <div className="grid gap-8 lg:grid-cols-3">
+            {[{
+              os: "On Windows",
+              image: "/windows.webp",
+              desc: "Open Device Manager, expand any category, and right-click your device. Choose 'Properties,' then click the 'Driver' tab. You'll instantly see the driver name, publisher, release date, and exact version number."
+            },{
+              os: "On macOS",
+              image: "/mack.webp",
+              desc: "Click the system menu, choose 'About This Mac,' then click 'More Info' and 'System Report.' A detailed window opens with sections listing the underlying driver (kext) along with its version."
+            },{
+              os: "On Linux",
+              image: "/linux.webp",
+              desc: "Open a terminal and try friendly commands like `lspci -k` for connected hardware and `lsusb` for USB devices, or `lsmod` to see every driver module currently loaded into the kernel."
+            }].map((item, i) => (
+              <div key={i} className="bg-white border border-slate-200 rounded-3xl overflow-hidden hover:-translate-y-1 transition-transform hover:bg-slate-50 shadow-sm flex flex-col">
+                <div className="relative h-48 w-full bg-slate-100 p-6 flex items-center justify-center">
+                  <Image src={item.image} alt={item.os} fill className="object-contain p-4" />
                 </div>
+                <div className="p-8 border-t border-slate-100 flex-1">
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">{item.os}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Troubleshooting: Common Problems */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">Troubleshooting</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Common Driver-Related Problems</h2>
+            <p className="text-lg text-slate-600">
+              Understanding these common driver issues helps in diagnosing and resolving hardware and software problems.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { title: "Driver Conflicts", desc: "Occur when two or more drivers compete for the same hardware resource, causing unpredictable behavior or system instability. OS manages this, but misconfigurations require manual resolution." },
+              { title: "Outdated Drivers", desc: "As operating systems evolve, drivers that haven't been updated may fail silently or exhibit reduced performance. Graphics drivers are particularly susceptible to becoming obsolete." },
+              { title: "Corrupted Driver Files", desc: "Caused by incomplete installations, disk errors, or malware. A corrupted driver may fail to load or produce incorrect behavior. Reinstalling from a known good source resolves this." },
+              { title: "Missing Drivers After OS Install", desc: "Certain hardware components may not be recognized or function only with basic generic drivers. Downloading the appropriate driver from the manufacturer resolves these issues." },
+              { title: "Incompatible Drivers", desc: "Occur when a driver designed for one OS version is used with a different version, causing instability or broken functionality. Using a certified driver avoids these problems." },
+              { title: "Signed vs Unsigned Drivers", desc: "Driver signing uses digital certificates to confirm a driver is verified. Unsigned drivers introduce significant security risks. Always prefer signed drivers from the hardware manufacturer." }
+            ].map((problem, idx) => (
+              <div key={idx} className="flex gap-4 p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-200 hover:bg-white transition-colors shadow-sm">
+                <AlertTriangle className="h-6 w-6 text-amber-500 shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 mb-2">{problem.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{problem.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. Helpful Topics We Cover */}
+      <section className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">Helpful Topics We Cover</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Pick a Hardware Category and Dive In</h2>
+            <p className="text-lg text-slate-600">
+              Each overview is bite-sized, friendly, and written to make sense the very first time you read it.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Printer Drivers", icon: Printer, desc: "Why your device needs special software, what goes wrong, and how to keep output painless across home, office, and shared setups.", href: "/drivers/printer-drivers" },
+              { title: "Graphics Drivers", icon: Monitor, desc: "How GPUs, displays, and modern apps stay in sync — and why a tiny driver update can transform game performance.", href: "/drivers/graphics-drivers" },
+              { title: "Audio Drivers", icon: Volume2, desc: "The quiet software shaping every chime, voice call, and music track that comes out of your speakers and headphones.", href: "/drivers/audio-drivers" },
+              { title: "Network Drivers", icon: Wifi, desc: "The bridge between your operating system and the wired or wireless chip that connects you to the wider internet.", href: "/drivers/network-drivers" },
+              { title: "USB & Devices", icon: Usb, desc: "How keyboards, mice, drives, webcams, and controllers get recognised the instant you plug them in.", href: "/drivers/usb-drivers" },
+              { title: "System Drivers", icon: Cpu, desc: "The chipset, CPU, and storage drivers you never see — but always feel — making your machine boot fast and run smoothly.", href: "/drivers/chipset-drivers" },
+            ].map((topic, i) => (
+              <div key={i} className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md hover:bg-slate-50 transition-all">
+                <topic.icon className="h-8 w-8 text-blue-600 mb-4" />
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{topic.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-4">{topic.desc}</p>
+                <Link href={topic.href} className="inline-flex items-center text-sm font-bold text-blue-600 hover:underline">
+                  Read More <ArrowRight className="ml-1 h-4 w-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. About DriverWise */}
+      <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-100 flex items-center justify-center aspect-video sm:aspect-square md:aspect-[4/3] lg:aspect-auto h-full min-h-[300px]">
+               <Image src="/website.jpg" alt="Person working at a clean desk with laptop" fill className="object-cover" />
+            </div>
+            <div>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">About DriverWise</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">A Friendly Voice in a Noisy Tech World</h2>
+              <div className="prose prose-slate prose-lg text-slate-600">
+                <p>We are a small, independent education project built around one stubborn idea — technology should not feel intimidating. Every overview on this site is written to make sense the first time you read it, whether you are a complete beginner or someone who already knows their way around a kernel debugger.</p>
+                <p>No sponsorships. No affiliate links. No "instant driver updater" nonsense. Just clear, honest explanations of how things actually work.</p>
+                <ul className="not-prose space-y-3 mt-8 mb-8">
+                  <li className="flex items-center gap-3"><ShieldCheck className="h-5 w-5 text-blue-600" /><span className="font-medium text-slate-800">Independent and free to read, always</span></li>
+                  <li className="flex items-center gap-3"><BookOpen className="h-5 w-5 text-blue-600" /><span className="font-medium text-slate-800">Plain-English first, technical accuracy second to none</span></li>
+                  <li className="flex items-center gap-3"><Globe className="h-5 w-5 text-blue-600" /><span className="font-medium text-slate-800">Privacy-respecting — no aggressive trackers</span></li>
+                </ul>
+                <Link href="/about" className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-6 py-3 font-semibold text-white transition hover:bg-slate-800">
+                  Read More About Us
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. Driver Deep Dive (Full List) */}
+      <section className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">Driver Deep Dive</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Understand Every Type of Driver</h2>
+            <p className="text-lg text-slate-600">
+              Explore the different kinds of drivers that make your hardware work—from kernel-mode foundations to virtual devices.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {driverCategories.map((cat, i) => (
+              <Link key={i} href={cat.href} className="group bg-white border border-slate-200 rounded-2xl p-6 hover:border-blue-300 hover:shadow-md transition-all">
+                <h3 className="font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">{cat.name}</h3>
+                <p className="text-sm text-slate-600 line-clamp-3 mb-4">{cat.desc}</p>
+                <span className="text-sm font-bold text-blue-600 group-hover:underline">Learn more</span>
               </Link>
             ))}
           </div>
         </div>
       </section>
 
+      {/* 12. FAQ */}
+      <section className="py-16 sm:py-24 bg-white">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">Start Here</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Common First Questions</h2>
+            <p className="text-lg text-slate-600">The questions readers ask most before exploring our guides.</p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              { q: "Do you provide driver downloads?", a: "No. We are an educational site only. The safest source for any driver is always your hardware manufacturer's official support page or your operating system's built-in update tool. We explain what to look for, never host files." },
+              { q: "Is this site affiliated with any hardware or OS company?", a: "No, DriverWise is entirely independent. We don't accept sponsorships from driver updater tools or hardware manufacturers, allowing us to remain completely unbiased." },
+              { q: "Where should I start?", a: "If you're trying to fix a specific problem right now, head to our 'Troubleshooting' guides under your device's category. If you're just curious, start with our 'What Exactly Is a Driver?' section above." }
+            ].map((faq, i) => (
+              <details key={i} className="group border border-slate-200 rounded-2xl bg-white overflow-hidden [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 p-6 font-bold text-slate-900 bg-slate-50 hover:bg-slate-100 transition-colors">
+                  <span className="flex items-center gap-3">
+                    <FileQuestion className="h-5 w-5 text-blue-600" />
+                    {faq.q}
+                  </span>
+                  <span className="transition group-open:rotate-180 bg-white border border-slate-200 rounded-full p-1">
+                    <svg fill="none" height="24" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24" className="h-4 w-4 text-slate-500"><path d="M6 9l6 6 6-6"></path></svg>
+                  </span>
+                </summary>
+                <div className="border-t border-slate-200 p-6 text-slate-600 leading-relaxed bg-white">
+                  {faq.a}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
-  )
+  );
 }

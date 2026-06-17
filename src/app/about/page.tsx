@@ -89,11 +89,11 @@ export default function About() {
           <div className="split-row">
             <div className="split-image animate-fade-in">
               <Image
-                src="/windows.webp"
-                alt="Person working at a clean desk with laptop"
+                src="/assets/images/home-translator.svg"
+                alt="PrintSoftDrive — independent driver education resource"
                 width={640}
                 height={420}
-                style={{ padding: '0', borderRadius: 'var(--radius-xl)' }}
+                style={{ padding: '0', borderRadius: 'var(--radius-xl)', width: '100%', height: 'auto' }}
               />
             </div>
             <div className="split-text animate-fade-in">
@@ -162,11 +162,11 @@ export default function About() {
           <div className="split-row" style={{ flexDirection: 'row-reverse' }}>
             <div className="split-image animate-fade-in">
               <Image
-                src="/mack.webp"
-                alt="What drives us"
+                src="/assets/images/knowledge-flow.svg"
+                alt="What drives us — driver knowledge flow"
                 width={640}
                 height={420}
-                style={{ padding: '0', borderRadius: 'var(--radius-xl)' }}
+                style={{ padding: '0', borderRadius: 'var(--radius-xl)', width: '100%', height: 'auto' }}
               />
             </div>
             <div className="split-text animate-fade-in">
@@ -353,11 +353,11 @@ export default function About() {
             </div>
             <div className="split-image">
               <Image 
-                src="/settingUpdate.webp" 
-                alt="Why we exist" 
+                src="/assets/images/system-what.svg" 
+                alt="Why PrintSoftDrive exists — driver education" 
                 width={640} 
                 height={420}
-                style={{ borderRadius: 'var(--radius-xl)' }}
+                style={{ borderRadius: 'var(--radius-xl)', width: '100%', height: 'auto' }}
               />
             </div>
           </div>
