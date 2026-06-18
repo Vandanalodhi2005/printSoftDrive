@@ -1,128 +1,114 @@
 import Link from "next/link";
 import HomeTabs from "../components/HomeTabs";
+import Marquee from "../components/Marquee";
 import Image from "next/image";
 import { ArrowRight, Printer, ShieldCheck, Layers, Monitor, Volume2, Wifi, Bluetooth, Usb, HardDrive, Cpu, Settings, Keyboard, Languages, Heart, ChevronRight, FileQuestion, BookOpen, AlertTriangle, MonitorPlay, Zap, Server, Globe, Search, Wrench, Download, Image as ImageIcon } from "lucide-react";
 
 export default function Home() {
   const driverCategories = [
-    { name: "Kernel-Mode Drivers", desc: "Low-level drivers with direct hardware and memory access.", icon: ShieldCheck, href: "/drivers/kernel-mode-drivers" },
-    { name: "User-Mode Drivers", desc: "Safer drivers that run separately from the operating system kernel.", icon: Layers, href: "/drivers/user-mode-drivers" },
-    { name: "Printer Drivers", desc: "Installation, updates, compatibility and troubleshooting guides.", icon: Printer, href: "/drivers/printer-drivers" },
-    { name: "Graphics Drivers", desc: "GPU updates, gaming performance and display optimization.", icon: Monitor, href: "/drivers/graphics-drivers" },
-    { name: "Audio Drivers", desc: "Fix sound issues and understand audio device communication.", icon: Volume2, href: "/drivers/audio-drivers" },
-    { name: "Network Drivers", desc: "Wi-Fi, Ethernet and connectivity troubleshooting resources.", icon: Wifi, href: "/drivers/network-drivers" },
-    { name: "Bluetooth Drivers", desc: "Pairing, connectivity and Bluetooth device support.", icon: Bluetooth, href: "/drivers/bluetooth-drivers" },
-    { name: "USB Drivers", desc: "Device recognition, installation and USB troubleshooting.", icon: Usb, href: "/drivers/usb-drivers" },
-    { name: "Chipset Drivers", desc: "The foundation that connects all your hardware together.", icon: Cpu, href: "/drivers/chipset-drivers" },
-    { name: "Storage Drivers", desc: "SSD, HDD, and external storage performance and reliability.", icon: HardDrive, href: "/drivers/storage-drivers" },
-    { name: "Input Devices", desc: "Keyboards, mice, touchpads, and game controller support.", icon: Keyboard, href: "/drivers/input-devices" },
-    { name: "Virtual Device Drivers", desc: "Software-created devices used by virtualization and emulation tools.", icon: Server, href: "/drivers/virtual-device-drivers" },
+    { name: "Kernel-Mode Drivers",   desc: "Low-level drivers with direct hardware and memory access.",                icon: ShieldCheck, href: "/knowledge/" },
+    { name: "User-Mode Drivers",     desc: "Safer drivers that run separately from the operating system kernel.",      icon: Layers,      href: "/knowledge/" },
+    { name: "Printer Drivers",       desc: "Installation, updates, compatibility and troubleshooting guides.",         icon: Printer,     href: "/drivers/printer/" },
+    { name: "Graphics Drivers",      desc: "GPU updates, gaming performance and display optimization.",                icon: Monitor,     href: "/drivers/graphics/" },
+    { name: "Audio Drivers",         desc: "Fix sound issues and understand audio device communication.",              icon: Volume2,     href: "/drivers/audio/" },
+    { name: "Network Drivers",       desc: "Wi-Fi, Ethernet and connectivity troubleshooting resources.",              icon: Wifi,        href: "/drivers/network/" },
+    { name: "Bluetooth Drivers",     desc: "Pairing, connectivity and Bluetooth device support.",                     icon: Bluetooth,   href: "/drivers/bluetooth/" },
+    { name: "USB Drivers",           desc: "Device recognition, installation and USB troubleshooting.",               icon: Usb,         href: "/drivers/usb/" },
+    { name: "Chipset Drivers",       desc: "The foundation that connects all your hardware together.",                 icon: Cpu,         href: "/knowledge/" },
+    { name: "Storage Drivers",       desc: "SSD, HDD, and external storage performance and reliability.",             icon: HardDrive,   href: "/knowledge/" },
+    { name: "Input Devices",         desc: "Keyboards, mice, touchpads, and game controller support.",                icon: Keyboard,    href: "/knowledge/" },
+    { name: "Virtual Device Drivers",desc: "Software-created devices used by virtualization and emulation tools.",    icon: Server,      href: "/knowledge/" },
   ];
 
   return (
     <>
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-16 pb-12 sm:pt-24 sm:pb-16 lg:pt-32 lg:pb-24">
-        {/* Background Gradients */}
-        <div className="absolute left-1/2 top-0 -translate-x-1/2 w-full max-w-7xl h-[500px] pointer-events-none">
-          <div className="absolute left-0 top-0 h-[400px] w-[400px] rounded-full bg-blue-100/50 blur-[100px]" />
-          <div className="absolute right-0 top-0 h-[400px] w-[400px] rounded-full bg-sky-100/50 blur-[100px]" />
-        </div>
-        
-        <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6">
-          <div className="grid gap-8 sm:gap-12 md:grid-cols-[1.1fr_0.9fr] items-start">
-            {/* Left Content */}
-            <div>
-              <div className="mb-4 sm:mb-6 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white px-3 sm:px-4 py-1.5 sm:py-2 shadow-sm shadow-slate-200/50">
-                <span className="h-2 w-2 rounded-full bg-blue-500 shrink-0"></span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Trusted Driver Knowledge Base</span>
-              </div>
-              <h1 className="max-w-3xl text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight sm:leading-[1.1] tracking-tight text-slate-900">
-                Printer Drivers,
-                <span className="block bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent">Explained Clearly.</span>
-              </h1>
-              <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg lg:text-xl leading-7 sm:leading-8 text-slate-600">
-                Learn how printer drivers work, troubleshoot issues, and find practical solutions explained in simple language.
-              </p>
-              
-              <div className="mt-6 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                <Link
-                  className="group flex justify-center sm:justify-start items-center gap-2 rounded-xl sm:rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-500 px-6 sm:px-8 py-3.5 sm:py-4 font-medium text-white text-sm sm:text-base transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-200"
-                  href="/drivers"
-                >
-                  Explore Drivers
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  className="flex justify-center sm:justify-start rounded-xl sm:rounded-2xl border border-blue-100 bg-white px-6 sm:px-8 py-3.5 sm:py-4 font-medium text-blue-700 text-sm sm:text-base transition-all hover:bg-slate-50 hover:border-blue-200"
-                  href="/knowledge"
-                >
-                  Learn More
-                </Link>
-              </div>
+      <section className="home-hero-wrap">
+        {/* BG image with overlay */}
+        <div className="home-hero-bg" aria-hidden="true" />
+        <div className="home-hero-overlay" aria-hidden="true" />
 
-              <div className="mt-8 sm:mt-12 grid grid-cols-3 gap-4 sm:gap-8 sm:flex sm:flex-wrap">
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">500+</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Driver Guides</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">100+</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Printer Models</p>
-                </div>
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">24/7</h3>
-                  <p className="text-xs sm:text-sm text-slate-500 mt-1">Knowledge Access</p>
-                </div>
-              </div>
+        <div className="home-hero-content">
+          <div className="home-hero-left">
+            {/* Badge */}
+            <div className="home-hero-badge">
+              <span className="home-hero-badge-dot" />
+              <span>Trusted Driver Knowledge Base</span>
             </div>
 
-            {/* Right Content / Floating Card */}
-            <div className="relative w-full md:block">
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/40 transform transition-all duration-500 hover:-translate-y-2">
-                <div className="mb-6 flex items-center gap-4">
-                  <div className="flex h-12 sm:h-14 w-12 sm:w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 shrink-0">
-                    <Printer className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900">Driver Knowledge Center</h3>
-                    <p className="text-sm text-slate-500">Guides & Troubleshooting</p>
-                  </div>
-                </div>
-                
-                <div className="space-y-4">
-                  {["Printer Setup Guides", "Driver Installation Help", "Error Fix Tutorials", "Compatibility Resources"].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-colors hover:bg-slate-100">
-                      <ShieldCheck className="h-5 w-5 text-blue-600 shrink-0" />
-                      <span className="text-sm font-medium text-slate-700">{item}</span>
-                    </div>
-                  ))}
-                </div>
+            {/* Headline */}
+            <h1 className="home-hero-h1">
+              Printer Drivers,
+              <span className="home-hero-gradient"> Explained Clearly.</span>
+            </h1>
 
-                <div className="mt-8 rounded-2xl border border-blue-100 bg-blue-50/50 p-5 text-center">
-                  <p className="text-2xl sm:text-3xl font-black text-blue-900">1000+</p>
-                  <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mt-1">Monthly Readers</p>
+            {/* Sub */}
+            <p className="home-hero-p">
+              Learn how printer drivers work, troubleshoot issues, and find practical
+              solutions explained in simple language.
+            </p>
+
+            {/* CTAs */}
+            <div className="home-hero-btns">
+              <Link href="/drivers/" className="home-hero-btn-primary">
+                Explore Drivers
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="/knowledge/" className="home-hero-btn-ghost">
+                Learn More
+              </Link>
+            </div>
+
+            {/* Stats */}
+            <div className="home-hero-stats">
+              <div className="home-hero-stat">
+                <span className="home-hero-stat-num">500+</span>
+                <span className="home-hero-stat-lbl">Driver Guides</span>
+              </div>
+              <div className="home-hero-stat-div" aria-hidden="true" />
+              <div className="home-hero-stat">
+                <span className="home-hero-stat-num">100+</span>
+                <span className="home-hero-stat-lbl">Printer Models</span>
+              </div>
+              <div className="home-hero-stat-div" aria-hidden="true" />
+              <div className="home-hero-stat">
+                <span className="home-hero-stat-num">24/7</span>
+                <span className="home-hero-stat-lbl">Knowledge Access</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Floating card */}
+          <div className="home-hero-right">
+            <div className="home-hero-card">
+              <div className="home-hero-card-head">
+                <div className="home-hero-card-icon">
+                  <Printer className="h-6 w-6 text-white" />
                 </div>
+                <div>
+                  <p className="home-hero-card-title">Driver Knowledge Center</p>
+                  <p className="home-hero-card-sub">Guides &amp; Troubleshooting</p>
+                </div>
+              </div>
+              <div className="home-hero-card-items">
+                {["Printer Setup Guides", "Driver Installation Help", "Error Fix Tutorials", "Compatibility Resources"].map((item) => (
+                  <div key={item} className="home-hero-card-item">
+                    <ShieldCheck className="h-4 w-4 text-blue-600 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="home-hero-card-stat">
+                <p className="home-hero-card-stat-num">1000+</p>
+                <p className="home-hero-card-stat-lbl">Monthly Readers</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Banner */}
-      <section className="relative overflow-hidden border-y border-blue-100 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-6 sm:py-8">
-  <div className="relative mx-auto max-w-7xl px-6 text-center overflow-hidden">
-    <div className="flex flex-nowrap gap-8 scroll-left text-sm font-bold text-white">
-      <span className="flex items-center gap-2"><Volume2 className="h-4 w-4 text-white" /> Audio &amp; Sound</span>
-      <span className="flex items-center gap-2"><Wifi className="h-4 w-4 text-white" /> Wi-Fi &amp; Networking</span>
-      <span className="flex items-center gap-2"><Usb className="h-4 w-4 text-white" /> USB &amp; Devices</span>
-      <span className="flex items-center gap-2"><HardDrive className="h-4 w-4 text-white" /> Storage &amp; SSD</span>
-      <span className="flex items-center gap-2"><Bluetooth className="h-4 w-4 text-white" /> Bluetooth</span>
-      <span className="flex items-center gap-2"><Cpu className="h-4 w-4 text-white" /> Chipset &amp; System</span>
-      <span className="flex items-center gap-2"><Monitor className="h-4 w-4 text-white" /> Graphics &amp; GPU</span>
-    </div>
-  </div>
-</section>
+      {/* 2. Marquee — no bg color, just scrolling items */}
+      <Marquee />
 
       {/* 3. What is a Driver Section */}
       <section className="relative overflow-hidden py-16 sm:py-24 bg-slate-50">
@@ -407,12 +393,12 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Printer Drivers", icon: Printer, desc: "Why your device needs special software, what goes wrong, and how to keep output painless across home, office, and shared setups.", href: "/drivers/printer-drivers" },
-              { title: "Graphics Drivers", icon: Monitor, desc: "How GPUs, displays, and modern apps stay in sync — and why a tiny driver update can transform game performance.", href: "/drivers/graphics-drivers" },
-              { title: "Audio Drivers", icon: Volume2, desc: "The quiet software shaping every chime, voice call, and music track that comes out of your speakers and headphones.", href: "/drivers/audio-drivers" },
-              { title: "Network Drivers", icon: Wifi, desc: "The bridge between your operating system and the wired or wireless chip that connects you to the wider internet.", href: "/drivers/network-drivers" },
-              { title: "USB & Devices", icon: Usb, desc: "How keyboards, mice, drives, webcams, and controllers get recognised the instant you plug them in.", href: "/drivers/usb-drivers" },
-              { title: "System Drivers", icon: Cpu, desc: "The chipset, CPU, and storage drivers you never see — but always feel — making your machine boot fast and run smoothly.", href: "/drivers/chipset-drivers" },
+              { title: "Printer Drivers",  icon: Printer, desc: "Why your device needs special software, what goes wrong, and how to keep output painless across home, office, and shared setups.", href: "/drivers/printer/" },
+              { title: "Graphics Drivers", icon: Monitor, desc: "How GPUs, displays, and modern apps stay in sync — and why a tiny driver update can transform game performance.",              href: "/drivers/graphics/" },
+              { title: "Audio Drivers",    icon: Volume2, desc: "The quiet software shaping every chime, voice call, and music track that comes out of your speakers and headphones.",          href: "/drivers/audio/" },
+              { title: "Network Drivers",  icon: Wifi,    desc: "The bridge between your operating system and the wired or wireless chip that connects you to the wider internet.",            href: "/drivers/network/" },
+              { title: "USB & Devices",    icon: Usb,     desc: "How keyboards, mice, drives, webcams, and controllers get recognised the instant you plug them in.",                          href: "/drivers/usb/" },
+              { title: "System Drivers",   icon: Cpu,     desc: "The chipset, CPU, and storage drivers you never see — but always feel — making your machine boot fast and run smoothly.",     href: "/knowledge/" },
             ].map((topic, i) => (
               <div key={i} className="bg-white border border-slate-200 rounded-2xl p-6 hover:shadow-md hover:bg-slate-50 transition-all">
                 <topic.icon className="h-8 w-8 text-blue-600 mb-4" />

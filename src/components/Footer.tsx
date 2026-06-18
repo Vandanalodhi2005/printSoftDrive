@@ -1,116 +1,121 @@
-import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+'use client';
 
-export function Footer() {
-  const currentYear = new Date().getFullYear();
+import Link from 'next/link';
+import Image from 'next/image';
 
+const year = new Date().getFullYear();
+
+export default function Footer() {
   return (
-    <footer className="border-t border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:py-16">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-          {/* Brand Column */}
-          <div className="flex flex-col gap-4">
-            <Link className="flex items-center gap-3" href="/">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-sky-500 shadow-lg shadow-blue-200">
-                <span className="text-lg font-bold text-white">D</span>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold tracking-tight text-slate-900">
-                  DriverWise
-                </h2>
-                <p className="text-xs text-slate-500">Printer Drivers Hub</p>
-              </div>
-            </Link>
-            <p className="text-sm leading-6 text-slate-600">
-              Your trusted resource for understanding printer drivers, troubleshooting
-              issues, and finding clear answers without technical complexity.
-            </p>
-          </div>
+    <footer className="ftr">
 
-          {/* Site Links */}
-          <div>
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
-              Site Links
-            </h3>
-            <ul className="space-y-3 text-sm text-slate-600">
-              <li><Link href="/" className="hover:text-blue-600 transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-blue-600 transition-colors">About</Link></li>
-              <li><Link href="/blog" className="hover:text-blue-600 transition-colors">Blog</Link></li>
-              <li><Link href="/knowledge" className="hover:text-blue-600 transition-colors">Knowledge</Link></li>
-              <li><Link href="/contact" className="hover:text-blue-600 transition-colors">Contact</Link></li>
-              <li><Link href="/sitemap" className="hover:text-blue-600 transition-colors">Sitemap</Link></li>
-            </ul>
-          </div>
+      {/* ── Main columns ── */}
+      <div className="container ftr__body">
 
-          {/* Driver Overviews */}
-          <div>
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
-              Driver Overviews
-            </h3>
-            <ul className="space-y-3 text-sm text-slate-600">
-              <li><Link href="/drivers" className="hover:text-blue-600 transition-colors">All Device Drivers</Link></li>
-              <li><Link href="/drivers/printer-drivers" className="hover:text-blue-600 transition-colors">Printer Drivers</Link></li>
-              <li><Link href="/drivers/scanner-drivers" className="hover:text-blue-600 transition-colors">Scanner Drivers</Link></li>
-              <li><Link href="/drivers/graphics-drivers" className="hover:text-blue-600 transition-colors">Graphics Drivers</Link></li>
-              <li><Link href="/drivers/audio-drivers" className="hover:text-blue-600 transition-colors">Audio Drivers</Link></li>
-              <li><Link href="/drivers/network-drivers" className="hover:text-blue-600 transition-colors">Wi‑Fi & Network</Link></li>
-              <li><Link href="/drivers/bluetooth-drivers" className="hover:text-blue-600 transition-colors">Bluetooth Drivers</Link></li>
-              <li><Link href="/drivers/usb-drivers" className="hover:text-blue-600 transition-colors">USB Drivers</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal & Contact */}
-          <div className="flex flex-col gap-6">
-            <div>
-              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider mb-4">
-                Get In Touch
-              </h3>
-              <p className="text-sm text-slate-600 mb-4">
-                Have a question or topic suggestion? We would love to hear from you.
-              </p>
-              <div className="flex flex-col gap-3 text-sm text-slate-600">
-                <div className="flex items-center gap-2">
-                  <Mail className="h-4 w-4 text-blue-600" />
-                  <a href="mailto:hello@driverwise.com" className="hover:text-blue-600 transition-colors">
-                    hello@driverwise.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-blue-600" />
-                  <span>United States</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Disclaimer */}
-        <div className="mt-12 rounded-2xl bg-slate-50 p-6 border border-slate-100">
-          <p className="text-xs leading-5 text-slate-500">
-            <strong>Disclaimer:</strong> DriverWise is an independent educational resource designed to help users understand printer drivers, setup procedures, compatibility, and troubleshooting methods. Content is provided for informational purposes only and does not represent any printer manufacturer, hardware vendor, or software publisher.
+        {/* Col 1 — Brand */}
+        <div className="ftr__brand">
+          <Link href="/" className="ftr__logo-wrap" aria-label="PrintSoftDrive home">
+            <Image
+              src="/logo.jpg"
+              alt="PrintSoftDrive"
+              width={160}
+              height={32}
+              style={{ height: '32px', width: 'auto' }}
+            />
+          </Link>
+          <p className="ftr__tagline">
+            Your trusted resource for understanding printer drivers, troubleshooting issues,
+            and finding clear answers without technical complexity.
           </p>
         </div>
 
-        {/* Bottom */}
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-8">
-          <p className="text-sm text-slate-500">
-            © {currentYear} DriverWise. All rights reserved.
+        {/* Col 2 — Site Links */}
+        <div className="ftr__col">
+          <p className="ftr__col-title">Site Links</p>
+          <ul className="ftr__col-list">
+            <li><Link href="/"           className="ftr__link">Home</Link></li>
+            <li><Link href="/about/"     className="ftr__link">About</Link></li>
+            <li><Link href="/blog/"      className="ftr__link">Blog</Link></li>
+            <li><Link href="/knowledge/" className="ftr__link">Knowledge</Link></li>
+            <li><Link href="/contact/"   className="ftr__link">Contact</Link></li>
+            <li><Link href="/sitemap/"   className="ftr__link">Sitemap</Link></li>
+          </ul>
+        </div>
+
+        {/* Col 3 — Driver Overviews */}
+        <div className="ftr__col">
+          <p className="ftr__col-title">Driver Overviews</p>
+          <ul className="ftr__col-list">
+            <li><Link href="/drivers/"             className="ftr__link">All Device Drivers</Link></li>
+            <li><Link href="/drivers/printer/"     className="ftr__link">Printer Drivers</Link></li>
+            <li><Link href="/drivers/scanner/"     className="ftr__link">Scanner Drivers</Link></li>
+            <li><Link href="/drivers/graphics/"    className="ftr__link">Graphics Drivers</Link></li>
+            <li><Link href="/drivers/audio/"       className="ftr__link">Audio Drivers</Link></li>
+            <li><Link href="/drivers/network/"     className="ftr__link">Wi-Fi &amp; Network</Link></li>
+            <li><Link href="/drivers/bluetooth/"   className="ftr__link">Bluetooth Drivers</Link></li>
+            <li><Link href="/drivers/usb/"         className="ftr__link">USB Drivers</Link></li>
+          </ul>
+        </div>
+
+        {/* Col 4 — Legal */}
+        <div className="ftr__col">
+          <p className="ftr__col-title">Legal</p>
+          <ul className="ftr__col-list">
+            <li><Link href="/privacy/"                className="ftr__link">Privacy Policy</Link></li>
+            <li><Link href="/terms/"                  className="ftr__link">Terms of Use</Link></li>
+            <li><Link href="/disclaimer/"             className="ftr__link">Disclaimer</Link></li>
+            <li><Link href="/cookie-policy/"          className="ftr__link">Cookie Policy</Link></li>
+            <li><Link href="/advertising-disclosure/" className="ftr__link">Advertising Disclosure</Link></li>
+            <li><Link href="/accessibility/"          className="ftr__link">Accessibility</Link></li>
+          </ul>
+        </div>
+
+        {/* Col 5 — Get In Touch */}
+        <div className="ftr__col">
+          <p className="ftr__col-title">Get In Touch</p>
+          <p className="ftr__touch-desc">
+            Have a question or topic suggestion? We would love to hear from you.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-slate-500">
-            <Link href="/privacy" className="hover:text-blue-600 transition-colors">Privacy Policy</Link>
-            <span className="hidden sm:inline">·</span>
-            <Link href="/terms" className="hover:text-blue-600 transition-colors">Terms of Use</Link>
-            <span className="hidden sm:inline">·</span>
-            <Link href="/disclaimer" className="hover:text-blue-600 transition-colors">Disclaimer</Link>
-            <span className="hidden sm:inline">·</span>
-            <Link href="/cookie-policy" className="hover:text-blue-600 transition-colors">Cookie Policy</Link>
-            <span className="hidden sm:inline">·</span>
-            <Link href="/advertising-disclosure" className="hover:text-blue-600 transition-colors">Advertising Disclosure</Link>
-            <span className="hidden sm:inline">·</span>
-            <Link href="/accessibility" className="hover:text-blue-600 transition-colors">Accessibility</Link>
+          <div className="ftr__touch-item">
+            <span className="ftr__touch-label">EMAIL</span>
+            <a href="mailto:support@printsoftdrive.com" className="ftr__touch-value">
+              support@printsoftdrive.com
+            </a>
           </div>
+          <div className="ftr__touch-item">
+            <span className="ftr__touch-label">ADDRESS</span>
+            <span className="ftr__touch-value ftr__touch-value--muted">United States</span>
+          </div>
+        </div>
+
+      </div>
+
+      {/* ── Disclaimer band ── */}
+      <div className="ftr__disclaimer-band">
+        <div className="container">
+          <p className="ftr__disclaimer-text">
+            <strong>Disclaimer:</strong> PrintSoftDrive is an independent educational resource designed to help users
+            understand printer drivers, setup procedures, compatibility, and troubleshooting methods.
+            Content is provided for informational purposes only and does not represent any printer manufacturer,
+            hardware vendor, or software publisher.
+          </p>
         </div>
       </div>
+
+      {/* ── Bottom bar ── */}
+      <div className="container ftr__bottom">
+        <p className="ftr__copy">© {year} PrintSoftDrive. All rights reserved.</p>
+        <nav className="ftr__bottom-nav" aria-label="Legal footer links">
+          <Link href="/privacy/"                className="ftr__bottom-link">Privacy Policy</Link>
+          <Link href="/terms/"                  className="ftr__bottom-link">Terms</Link>
+          <Link href="/disclaimer/"             className="ftr__bottom-link">Disclaimer</Link>
+          <Link href="/cookie-policy/"          className="ftr__bottom-link">Cookies</Link>
+          <Link href="/advertising-disclosure/" className="ftr__bottom-link">Advertising Disclosure</Link>
+          <Link href="/accessibility/"          className="ftr__bottom-link">Accessibility</Link>
+          <Link href="/sitemap/"                className="ftr__bottom-link">Sitemap</Link>
+        </nav>
+      </div>
+
     </footer>
   );
 }

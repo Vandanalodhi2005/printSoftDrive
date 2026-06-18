@@ -1,7 +1,7 @@
 import './globals.css'
 import { ReactNode } from 'react'
 import Header from '../components/Header'
-import { Footer } from '../components/Footer'
+import Footer from '../components/Footer'
 import type { Metadata, Viewport } from 'next'
 
 export const viewport: Viewport = {

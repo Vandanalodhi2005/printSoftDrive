@@ -1,51 +1,35 @@
-import React from 'react'
+'use client'
 
-const marqueeItems = [
-  'Device Drivers',
-  'Graphics & GPU',
-  'Audio & Sound',
-  'Wi-Fi & Networking',
-  'USB & Devices',
-  'Storage & SSD',
-  'Bluetooth',
-  'Chipset & System'
+import { Volume2, Wifi, Usb, HardDrive, Bluetooth, Cpu, Monitor, Printer } from 'lucide-react'
+
+const items = [
+  { label: 'Printer Drivers',    Icon: Printer  },
+  { label: 'Audio & Sound',      Icon: Volume2  },
+  { label: 'Wi-Fi & Networking', Icon: Wifi     },
+  { label: 'USB & Devices',      Icon: Usb      },
+  { label: 'Storage & SSD',      Icon: HardDrive},
+  { label: 'Bluetooth',          Icon: Bluetooth},
+  { label: 'Chipset & System',   Icon: Cpu      },
+  { label: 'Graphics & GPU',     Icon: Monitor  },
 ]
 
 export default function Marquee() {
   return (
-    <div className="brand-marquee" aria-hidden="true">
-      <div className="brand-marquee-track">
-        {/* Render twice for seamless loop */}
-        {marqueeItems.map((item, index) => (
-          <span key={`mq1-${index}`} className="brand-marquee-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-              <path
-                d="m9 12 2 2 4-4"
-                stroke="currentColor"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {item}
-          </span>
-        ))}
-        {marqueeItems.map((item, index) => (
-          <span key={`mq2-${index}`} className="brand-marquee-item">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-              <path
-                d="m9 12 2 2 4-4"
-                stroke="currentColor"
-                strokeWidth="2.4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            {item}
-          </span>
-        ))}
+    <div className="mq-wrap" aria-hidden="true">
+      {/* fade edges */}
+      <div className="mq-fade mq-fade-l" />
+      <div className="mq-fade mq-fade-r" />
+
+      <div className="mq-track">
+        {/* render 3× so there's always content in view */}
+        {[0, 1, 2].flatMap(pass =>
+          items.map(({ label, Icon }) => (
+            <span key={`${pass}-${label}`} className="mq-item">
+              <Icon className="mq-icon" aria-hidden="true" />
+              {label}
+            </span>
+          ))
+        )}
       </div>
     </div>
   )
