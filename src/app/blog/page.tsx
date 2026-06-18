@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import PageHero from '../../components/PageHero'
 
 export const metadata: Metadata = {
   title: 'The Driver Blog — Friendly, Useful Reads | PrintSoftDrive',
@@ -153,36 +154,15 @@ const popularTags = ['Driver Errors', 'Wi-Fi Issues', 'GPU Updates', 'Printer Pr
 export default function Blog() {
   return (
     <>
-      {/* ══ HERO ══ */}
-      <section className="blog-hero">
-        <div className="container">
-          <div className="blog-hero-inner animate-fade-in">
-            <nav className="breadcrumb" aria-label="Breadcrumb">
-              <ol style={{ color: 'rgba(255,255,255,0.5)' }}>
-                <li><Link href="/" style={{ color: 'rgba(255,255,255,0.7)' }}>Home</Link></li>
-                <li aria-current="page" style={{ color: '#fff' }}>Blog</li>
-              </ol>
-            </nav>
-            <div className="blog-hero-kicker">
-              <span className="blog-hero-dot" aria-hidden="true" />
-              The Driver Blog
-            </div>
-            <h1 className="blog-hero-title">
-              Friendly, Useful Reads About<br />
-              <span className="blog-hero-accent">How Your Computer Actually Works</span>
-            </h1>
-            <p className="blog-hero-sub">
-              Plain-English articles, calm knowledge, and the occasional &ldquo;wait, that&rsquo;s what it does?&rdquo; moment.
-              Written for curious users who want practical answers without getting buried in technical jargon.
-            </p>
-            <div className="blog-hero-actions">
-              <a href="#latest" className="btn btn-primary">Browse Latest Articles</a>
-              <Link href="/knowledge/" className="blog-hero-ghost">Need a Quick Fix?</Link>
-            </div>
-          </div>
-        </div>
-        <div className="blog-hero-grid" aria-hidden="true" />
-      </section>
+      <PageHero
+        kicker="The Driver Blog"
+        title="Friendly, Useful Reads About"
+        accentWords="How Your Computer Actually Works"
+        description="Plain-English articles, calm knowledge, and the occasional &quot;wait, that's what it does?&quot; moment. Written for curious users who want practical answers without getting buried in technical jargon."
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Blog' }]}
+        primaryCta={{ label: 'Browse Latest Articles', href: '#latest' }}
+        secondaryCta={{ label: 'Need a Quick Fix?', href: '/knowledge/' }}
+      />
 
       {/* ══ WHAT YOU'LL FIND STRIP ══ */}
       <section className="blog-find-strip">

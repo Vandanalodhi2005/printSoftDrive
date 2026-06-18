@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import DriverDetails from '@/components/DriverDetails'
+import PageHero from '../../components/PageHero'
 
 export const metadata: Metadata = {
   title: 'Device Drivers Explained — Every Family | PrintSoftDrive',
@@ -25,24 +26,20 @@ const driverFamilies = [
 export default function Drivers() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="page-hero">
-        <div className="container">
-          <div className="hero-inner animate-fade-in">
-            <nav className="breadcrumb" aria-label="Breadcrumb">
-              <ol>
-                <li><Link href="/">Home</Link></li>
-                <li aria-current="page">Device Drivers</li>
-              </ol>
-            </nav>
-            <span className="section-kicker">Driver Overviews</span>
-            <h1>Every Driver Family,<br /><span style={{ color: 'var(--primary)' }}>Explained in Plain English</span></h1>
-            <p className="hero-lede">
-              Drivers are simply translators between your software and your hardware. Explore each driver category to understand what it does, why it matters, and how to keep it working smoothly without getting lost in technical jargon.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        kicker="Driver Overviews"
+        title="Every Driver Family,"
+        accentWords="Explained in Plain English"
+        description="Drivers are simply translators between your software and your hardware. Explore each driver category to understand what it does, why it matters, and how to keep it working smoothly — no technical jargon required."
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Device Drivers' }]}
+        primaryCta={{ label: 'Browse All Families', href: '#families' }}
+        secondaryCta={{ label: 'Troubleshooting Hub', href: '/knowledge/' }}
+        stats={[
+          { num: '7+', label: 'Driver Families' },
+          { num: '40+', label: 'Plain-English Guides' },
+          { num: '0', label: 'Downloads Hosted' },
+        ]}
+      />
 
       {/* Features Section */}
       <section className="block">

@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" data-scroll-behavior="smooth">
       <body className="min-h-screen bg-slate-50 text-slate-900">
         <Header />
-        <main id="main-content" className="w-full pt-12">
+        <main id="main-content" className="w-full">
           {children}
         </main>
         <Footer />

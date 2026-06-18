@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import ThemeIcon from '../../components/ThemeIcon'
+import PageHero from '../../components/PageHero'
 
 export const metadata: Metadata = {
   title: 'Driver Troubleshooting Knowledge Base | PrintSoftDrive',
@@ -20,52 +21,20 @@ const symptoms = [
 export default function Knowledge() {
   return (
     <>
-      {/* ── Hero Sub ── */}
-      <section className="hero-sub" aria-label="Knowledge Hub" style={{ padding: '120px 0 80px' }}>
-        {/* <div className="hero-sub-floats" aria-hidden="true">
-          <div className="hero-sub-float hero-sub-float-1">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="6" y="3" width="12" height="6" rx="1" stroke="currentColor" strokeWidth="2"/><rect x="3" y="9" width="18" height="9" rx="2" stroke="currentColor" strokeWidth="2"/><rect x="6" y="14" width="12" height="7" rx="1" stroke="currentColor" strokeWidth="2"/></svg>
-            </div>
-            <div><span>Device</span><small>Quick fix</small></div>
-          </div>
-          <div className="hero-sub-float hero-sub-float-2">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12.55a11 11 0 0114 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </div>
-            <div><span>Wi-Fi</span><small>Quick fix</small></div>
-          </div>
-          <div className="hero-sub-float hero-sub-float-3">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5zM15 9a3 3 0 010 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-            </div>
-            <div><span>Audio</span><small>Quick fix</small></div>
-          </div>
-          <div className="hero-sub-float hero-sub-float-4">
-            <div className="hero-sub-float-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="2"/><path d="M8 22h8M12 18v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></svg>
-            </div>
-            <div><span>Display</span><small>Quick fix</small></div>
-          </div>
-        </div> */}
-
-        <div className="hero-sub-inner animate-fade-in">
-          <span className="hero-sub-tag"><span className="hero-sub-tag-dot"></span> Knowledge Hub</span>
-          <h1 className="home-hero-title">Take a Breath. <span className="accent">Most Driver Problems</span> Have a Simple Fix.</h1>
-          <p className="">A calm, ordered walkthrough for every common driver problem. Every symptom on this page links to a dedicated step-by-step fix overview — with images, plain-English explanations, and zero jargon walls.</p>
-          <div className="hero-sub-actions">
-            <a href="#symptoms" className="btn btn-primary">
-              <span>Jump to Symptoms</span>
-            </a>
-            <a href="#universal" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.2)' }}>
-              <span>Try Universal Fixes First</span>
-            </a>
-          </div>
-          <div className="hero-sub-bread">
-            <Link href="/">Home</Link> &rsaquo; <span>Knowledge</span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        kicker="Knowledge Hub"
+        title="Take a Breath."
+        accentWords="Most Driver Problems Have a Simple Fix."
+        description="A calm, ordered walkthrough for every common driver problem. Every symptom on this page links to a dedicated step-by-step fix overview — plain-English explanations, zero jargon walls, and zero downloads required."
+        breadcrumbs={[{ label: 'Home', href: '/' }, { label: 'Knowledge Base' }]}
+        primaryCta={{ label: 'Jump to Symptoms', href: '#symptoms' }}
+        secondaryCta={{ label: 'Universal Fixes First', href: '#universal' }}
+        stats={[
+          { num: '6', label: 'Symptom Guides' },
+          { num: '4', label: 'Universal Fixes' },
+          { num: '0', label: 'Jargon Used' },
+        ]}
+      />
 
       {/* ── Universal First Steps ── */}
       <section id="universal" className="block">
