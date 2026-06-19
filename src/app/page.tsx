@@ -42,7 +42,7 @@ export default function Home() {
               <span className="home-hero-gradient"> Explained Clearly.</span>
             </h1>
 
-            {/* Sub */}
+
             <p className="home-hero-p">
               Learn how printer drivers work, troubleshoot issues, and find practical
               solutions explained in simple language.
@@ -111,51 +111,7 @@ export default function Home() {
       <Marquee />
 
       {/* 3. What is a Driver Section */}
-      <section className="relative overflow-hidden py-16 sm:py-24 bg-slate-50">
-        <div className="relative mx-auto max-w-7xl px-6">
-          <div className="mb-8 flex justify-center">
-            <span className="rounded-full border border-blue-200 bg-blue-100 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-700 shadow-sm">
-              The Basics
-            </span>
-          </div>
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-slate-900 md:text-5xl lg:text-6xl">So... What Exactly Is a Driver?</h2>
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
-              Understanding drivers doesn't require a computer science degree. Start with these three simple ideas and you'll understand how hardware and software work together.
-            </p>
-          </div>
-
-          
-
-          <div className="mt-12 rounded-3xl border border-blue-100 bg-white p-8 md:p-12 shadow-xl shadow-blue-900/5">
-            <HomeTabs />
-              <div>
-                <h3 className="mb-8 text-3xl font-bold text-slate-900 md:text-4xl">Drivers Are The Translators Of Your Computer</h3>
-                <div className="space-y-6 text-lg leading-9 text-slate-600">
-                  <p>Your operating system and your hardware don't naturally speak the same language. A driver acts as the translator between them, ensuring every command is understood correctly.</p>
-                  <p>When you click Print, connect a webcam, adjust your speakers, or launch a game, the driver converts those requests into instructions that the hardware can understand and execute.</p>
-                  <p>Without drivers, your computer might detect hardware, but it wouldn't know how to use it effectively. Drivers make communication possible between software and physical devices.</p>
-                </div>
-              </div>
-              <div>
-                <div className="sticky top-24 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-700 via-blue-600 to-sky-500 p-8 text-white shadow-lg shadow-blue-600/20">
-                  <div className="mb-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.25em] text-blue-100">Quick Summary</p>
-                  </div>
-                  <ul className="space-y-5">
-                    <li className="flex gap-3"><ChevronRight className="h-5 w-5 shrink-0 mt-1 text-blue-300" /> <span className="leading-7 font-medium">Translates operating system commands.</span></li>
-                    <li className="flex gap-3"><ChevronRight className="h-5 w-5 shrink-0 mt-1 text-blue-300" /> <span className="leading-7 font-medium">Allows hardware and software to communicate.</span></li>
-                    <li className="flex gap-3"><ChevronRight className="h-5 w-5 shrink-0 mt-1 text-blue-300" /> <span className="leading-7 font-medium">Essential for every major device.</span></li>
-                  </ul>
-                  <div className="mt-8 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-sm">
-                    <p className="text-sm leading-6 text-blue-50 font-medium">Drivers work quietly behind the scenes, but they are one of the most important pieces of software on your computer.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        
-      </section>
+      <HomeTabs />
 
       {/* 4. Explore Driver Categories */}
       <section className="relative overflow-hidden bg-white py-16 sm:py-24 border-b border-slate-200">
@@ -413,15 +369,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 10. About DriverWise */}
+      {/* 10. About Driver Info Hub */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-100 flex items-center justify-center aspect-video sm:aspect-square md:aspect-[4/3] lg:aspect-auto h-full min-h-[300px]">
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-100 flex items-center justify-center aspect-video sm:aspect-square md:aspect-[4/3] lg:aspect-auto h-full min-h-[200px] sm:min-h-[300px]">
                <Image src="/website.jpg" alt="Person working at a clean desk with laptop" fill className="object-cover" />
             </div>
             <div>
-              <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">About DriverWise</span>
+              <span className="text-sm font-bold text-blue-600 uppercase tracking-wider block mb-3">About Driver Info Hub</span>
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">A Friendly Voice in a Noisy Tech World</h2>
               <div className="prose prose-slate prose-lg text-slate-600">
                 <p>We are a small, independent education project built around one stubborn idea — technology should not feel intimidating. Every overview on this site is written to make sense the first time you read it, whether you are a complete beginner or someone who already knows their way around a kernel debugger.</p>
@@ -475,7 +431,7 @@ export default function Home() {
           <div className="space-y-4">
             {[
               { q: "Do you provide driver downloads?", a: "No. We are an educational site only. The safest source for any driver is always your hardware manufacturer's official support page or your operating system's built-in update tool. We explain what to look for, never host files." },
-              { q: "Is this site affiliated with any hardware or OS company?", a: "No, DriverWise is entirely independent. We don't accept sponsorships from driver updater tools or hardware manufacturers, allowing us to remain completely unbiased." },
+              { q: "Is this site affiliated with any hardware or OS company?", a: "No, Driver Info Hub is entirely independent. We don't accept sponsorships from driver updater tools or hardware manufacturers, allowing us to remain completely unbiased." },
               { q: "Where should I start?", a: "If you're trying to fix a specific problem right now, head to our 'Troubleshooting' guides under your device's category. If you're just curious, start with our 'What Exactly Is a Driver?' section above." }
             ].map((faq, i) => (
               <details key={i} className="group border border-slate-200 rounded-2xl bg-white overflow-hidden [&_summary::-webkit-details-marker]:hidden">

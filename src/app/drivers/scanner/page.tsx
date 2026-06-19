@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: "Scanner Drivers Explained — Detection & Fixes | PrintSoftDrive",
+  title: "Scanner Drivers Explained — Detection & Fixes | Driver Info Hub",
   description: "How scanner drivers let every app drive your scanner, why printing can work while scanning doesn't, and the fixes for 'scanner not detected'. Plain English, no downloads.",
 }
 

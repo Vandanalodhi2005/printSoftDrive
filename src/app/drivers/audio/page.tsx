@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { ChevronRight } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "Audio Drivers Explained — Sound & Voice | PrintSoftDrive",
+  title: "Audio Drivers Explained — Sound & Voice | Driver Info Hub",
   description: "What an audio driver does, why sound glitches happen, and how to fix common audio issues. Plain English, no downloads."
 }
 

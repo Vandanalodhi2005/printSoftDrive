@@ -316,9 +316,9 @@ const posts: Record<string, Post> = {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const post = posts[slug]
-  if (!post) return { title: 'Article | PrintSoftDrive' }
+  if (!post) return { title: 'Article | Driver Info Hub' }
   return {
-    title: `${post.title} | PrintSoftDrive`,
+    title: `${post.title} | Driver Info Hub`,
     description: post.desc,
     alternates: { canonical: `/blog/${slug}/` },
     openGraph: { title: post.title, description: post.desc, type: 'article' },
@@ -349,7 +349,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </nav>
             <div className="art-meta-row">
               <span className="art-cat-tag" style={{ background: post.tagColor }}>{post.tag}</span>
-              <span className="art-byline">PrintSoftDrive</span>
+              <span className="art-byline">Driver Info Hub</span>
               <span className="art-byline-sep" aria-hidden="true">·</span>
               <span className="art-byline">Knowledge Article</span>
             </div>
@@ -421,7 +421,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 <p>Understand how drivers work in the real world and what actually matters.</p>
               </div>
               <div className="sidebar-badge-card">
-                <h4>PrintSoftDrive Editorial</h4>
+                <h4>Driver Info Hub Editorial</h4>
                 <p>Researched and written to help everyday users understand their devices.</p>
               </div>
               <div className="sidebar-time-card">

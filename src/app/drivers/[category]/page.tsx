@@ -9,7 +9,7 @@ export default async function DriversCategory({ params }: { params: Promise<{ ca
   ]
   return (
     <>
-      <Seo title={`${name} Drivers — Plain-English Overview | PrintSoftDrive`} description={`Understand what ${name} drivers do and how to keep them updated.`} />
+      <Seo title={`${name} Drivers — Plain-English Overview | Driver Info Hub`} description={`Understand what ${name} drivers do and how to keep them updated.`} />
       
       <section className="page-hero">
         <div className="container">

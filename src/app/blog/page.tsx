@@ -4,7 +4,7 @@ import Image from 'next/image'
 import PageHero from '../../components/PageHero'
 
 export const metadata: Metadata = {
-  title: 'The Driver Blog — Friendly, Useful Reads | PrintSoftDrive',
+  title: 'The Driver Blog — Friendly, Useful Reads | Driver Info Hub',
   description: 'Plain-English articles about device drivers — how they work, how to update them safely, and how to fix the most common problems. New posts every fortnight.',
   alternates: { canonical: '/blog/' },
 }
@@ -261,7 +261,7 @@ export default function Blog() {
                   <p className="bac-desc">{post.desc}</p>
                   <div className="bac-author">
                     <span className="bac-author-dot" aria-hidden="true" />
-                    <span>PrintSoftDrive editorial team</span>
+                    <span>Driver Info Hub editorial team</span>
                   </div>
                   <span className="bac-read">
                     Read article

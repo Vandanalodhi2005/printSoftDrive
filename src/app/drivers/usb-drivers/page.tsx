@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: "USB Drivers Explained — Plug and Play | PrintSoftDrive",
+  title: "USB Drivers Explained — Plug and Play | Driver Info Hub",
   description: "How the USB driver stack lets you plug almost anything in and have it just work, plus fixes for unknown devices and drives that keep disconnecting.",
 }
 

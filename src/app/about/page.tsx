@@ -3,8 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'About PrintSoftDrive — Independent, Plain-English Driver Guides',
-  description: 'PrintSoftDrive is a small, independent education project: plain-English driver overviews, no downloads, no sponsorships. Learn who we are and what we cover.',
+  title: 'About Driver Info Hub — Independent, Plain-English Driver Guides',
+  description: 'Driver Info Hub is a small, independent education project: plain-English driver overviews, no downloads, no sponsorships. Learn who we are and what we cover.',
 }
 
 /* ── data ──────────────────────────────────────────────── */
@@ -24,7 +24,7 @@ const mission = [
 const story = [
   {
     title: 'The spark',
-    body:  'PrintSoftDrive started with a simple frustration: trying to help a family member fix a printer driver issue, and every search result either assumed too much knowledge or tried to sell something.',
+    body:  'Driver Info Hub started with a simple frustration: trying to help a family member fix a printer driver issue, and every search result either assumed too much knowledge or tried to sell something.',
   },
   {
     title: 'Building the first guides',
@@ -32,7 +32,7 @@ const story = [
   },
   {
     title: 'Growing into a resource',
-    body:  'Over time, we expanded our coverage to include every major driver category, added a knowledge hub for quick fixes, and launched a blog to explore broader computing concepts in plain English. Today, PrintSoftDrive serves thousands of readers every month.',
+    body:  'Over time, we expanded our coverage to include every major driver category, added a knowledge hub for quick fixes, and launched a blog to explore broader computing concepts in plain English. Today, Driver Info Hub serves thousands of readers every month.',
   },
 ]
 
@@ -78,13 +78,13 @@ export default function About() {
                 <li aria-current="page">Topics</li>
               </ol>
             </nav>
-            <div className="about-hero-kicker">ABOUT PRINTSOFTDRIVE</div>
+            <div className="about-hero-kicker">ABOUT DRIVER INFO HUB</div>
             <h1 className="about-hero-h1">
               We Translate the Technical,<br />
               <span className="about-hero-accent">So You Can Get On With Your Day</span>
             </h1>
             <p className="about-hero-desc">
-              PrintSoftDrive is a small, independent education project with one stubborn belief:
+              Driver Info Hub is a small, independent education project with one stubborn belief:
               technology should not feel intimidating. Every guide here is written for
               beginners while still being useful for advanced users who want clarity without noise.
             </p>
@@ -103,10 +103,10 @@ export default function About() {
         <div className="container">
           <div className="about-split">
             <div className="about-split-text">
-              <p className="about-sec-label">Why PrintSoftDrive Exists</p>
+              <p className="about-sec-label">Why Driver Info Hub Exists</p>
               <p className="about-why-lead">
                 Most technical documentation assumes too much knowledge or buries simple answers
-                under layers of complexity. PrintSoftDrive exists to fix that — by turning
+                under layers of complexity. Driver Info Hub exists to fix that — by turning
                 confusing driver issues into clear, actionable explanations.
               </p>
               <ul className="about-chips">
@@ -119,7 +119,7 @@ export default function About() {
               </ul>
               <div className="about-promise-box">
                 <p className="about-promise-main">Simple. Clear. Useful.</p>
-                <p className="about-promise-sub">That&apos;s the PrintSoftDrive promise.</p>
+                <p className="about-promise-sub">That&apos;s the Driver Info Hub promise.</p>
               </div>
             </div>
             <div className="about-split-media">
@@ -145,14 +145,14 @@ export default function About() {
             <div className="about-split-media">
               <Image
                 src="/assets/images/knowledge-flow.svg"
-                alt="PrintSoftDrive knowledge flow diagram"
+                alt="Driver Info Hub knowledge flow diagram"
                 width={560}
                 height={480}
                 style={{ width: '100%', height: 'auto', borderRadius: '20px', boxShadow: 'var(--shadow-lg)' }}
               />
             </div>
             <div className="about-split-text">
-              <p className="about-sec-label">ABOUT PRINTSOFTDRIVE</p>
+              <p className="about-sec-label">ABOUT DRIVER INFO HUB</p>
               <h2>A Friendly Voice in a Noisy Tech World</h2>
               <p>
                 We are a small, independent education project built around one stubborn idea —
@@ -205,7 +205,7 @@ export default function About() {
               <h4>What drives us</h4>
               <p>
                 We&apos;ve all been there: staring at a confusing error message, not knowing where to
-                turn. PrintSoftDrive exists to be the calm, helpful resource we wish we had in
+                turn. Driver Info Hub exists to be the calm, helpful resource we wish we had in
                 those moments.
               </p>
             </div>
@@ -228,7 +228,7 @@ export default function About() {
         <div className="container">
           <div className="about-section-head">
             <p className="about-sec-label">OUR STORY</p>
-            <h2>How PrintSoftDrive came to be</h2>
+            <h2>How Driver Info Hub came to be</h2>
           </div>
           <div className="about-story-grid">
             {story.map(s => (
@@ -270,7 +270,7 @@ export default function About() {
         <div className="container">
           <div className="about-section-head">
             <p className="about-sec-label">WHAT TO EXPECT</p>
-            <h2>What PrintSoftDrive Does — And What It Does Not</h2>
+            <h2>What Driver Info Hub Does — And What It Does Not</h2>
           </div>
           <div className="about-expect-grid">
             <div className="about-expect-card about-expect-yes">
@@ -312,7 +312,7 @@ export default function About() {
         <div className="container">
           <div className="about-section-head">
             <p className="about-sec-label">EDITORIAL STANDARDS</p>
-            <h2>How PrintSoftDrive Is Written and Reviewed</h2>
+            <h2>How Driver Info Hub Is Written and Reviewed</h2>
             <p className="about-section-desc">
               Every article on this site is written, fact-checked, and reviewed against a clear
               set of editorial standards designed to keep things accurate, useful, and free of
@@ -347,7 +347,7 @@ export default function About() {
                 We wanted a calm third option.
               </p>
               <p>
-                PrintSoftDrive explains what each kind of driver actually does, in plain English,
+                Driver Info Hub explains what each kind of driver actually does, in plain English,
                 and walks through the most common problems with patience instead of jargon.
                 We don&apos;t host downloads, we don&apos;t run a help desk, and we don&apos;t take
                 sponsorships from the companies we write about. That independence is the whole

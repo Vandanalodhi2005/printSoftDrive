@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: "Network Drivers Explained — Bridge Between PC and Internet | PrintSoftDrive",
+  title: "Network Drivers Explained — Bridge Between PC and Internet | Driver Info Hub",
   description: "Detailed guide on network drivers, common issues, quick fixes, and troubleshooting for Wi‑Fi and Ethernet connections.",
 }
 

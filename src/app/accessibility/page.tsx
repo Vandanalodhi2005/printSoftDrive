@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ChevronRight, Accessibility, CheckCircle, RefreshCw, Puzzle, MessageCircle, Mail } from 'lucide-react'
 
 export const metadata = {
-  title: 'Accessibility Statement | DriverWise',
+  title: 'Accessibility Statement | Driver Info Hub',
   description: 'Our commitment to digital accessibility for people with disabilities.',
 }
 
@@ -55,7 +55,7 @@ export default function AccessibilityPage() {
           {/* Intro */}
           <div className="mb-12 rounded-3xl border border-blue-100 bg-blue-50 p-8">
             <p className="text-lg leading-8 text-slate-700 font-medium">
-              At DriverWise, we strive to make our website accessible and usable for all visitors, regardless of technology or ability. Our goal is to create an inclusive online environment that enables every user to access information and services efficiently.
+              At Driver Info Hub, we strive to make our website accessible and usable for all visitors, regardless of technology or ability. Our goal is to create an inclusive online environment that enables every user to access information and services efficiently.
             </p>
           </div>
 
@@ -141,9 +141,9 @@ export default function AccessibilityPage() {
               <div className="rounded-2xl bg-slate-50 p-6 space-y-2">
                 <p className="text-slate-600">
                   Email:{' '}
-                  <a href="mailto:support@driverwise.com" className="text-blue-600 hover:underline">support@driverwise.com</a>
+                  <a href="mailto:support@driverinfohub.com" className="text-blue-600 hover:underline">support@driverinfohub.com</a>
                 </p>
-                <p className="text-slate-600">Website: www.driverwise.com</p>
+                <p className="text-slate-600">Website: www.driverinfohub.com</p>
                 <p className="mt-3 text-slate-500 text-sm">
                   We are committed to responding to accessibility-related feedback and inquiries in a timely manner.
                 </p>

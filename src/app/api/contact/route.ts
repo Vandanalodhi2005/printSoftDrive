@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       });
 
       await transporter.sendMail({
-        from:    `"PrintSoftDrive" <${process.env.SMTP_USER}>`,
+        from:    `"Driver Info Hub" <${process.env.SMTP_USER}>`,
         replyTo: safeEmail,
         to:      process.env.CONTACT_TO || process.env.SMTP_USER,
         subject: `Contact Form: ${safeSubject}`,

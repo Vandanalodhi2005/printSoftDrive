@@ -12,14 +12,14 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'DriverWise - Clear, Plain-English Driver Guides',
-    template: '%s | DriverWise',
+    default: 'Driver Info Hub - Clear, Plain-English Driver Guides',
+    template: '%s | Driver Info Hub',
   },
   description: 'Your trusted resource for understanding device drivers, troubleshooting issues, and finding clear answers without technical complexity.',
   keywords: ['device drivers', 'printer driver', 'driver troubleshooting', 'how drivers work', 'graphics driver', 'audio driver', 'network driver', 'USB driver', 'bluetooth driver', 'fix driver issues'],
-  authors: [{ name: 'DriverWise', url: 'https://www.driverwise.com' }],
-  creator: 'DriverWise',
-  metadataBase: new URL('https://www.driverwise.com'),
+  authors: [{ name: 'Driver Info Hub', url: 'https://www.driverinfohub.com' }],
+  creator: 'Driver Info Hub',
+  metadataBase: new URL('https://www.driverinfohub.com'),
   alternates: { canonical: '/' },
   robots: {
     index: true,
@@ -32,16 +32,16 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'DriverWise - Clear, Plain-English Driver Guides',
+    title: 'Driver Info Hub - Clear, Plain-English Driver Guides',
     description: 'Your trusted resource for understanding device drivers, troubleshooting issues, and finding clear answers without technical complexity.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'DriverWise',
-    images: [{ url: '/assets/images/og-image.png', width: 1200, height: 630, alt: 'DriverWise — Device Drivers Explained' }],
+    siteName: 'Driver Info Hub',
+    images: [{ url: '/assets/images/og-image.png', width: 1200, height: 630, alt: 'Driver Info Hub — Device Drivers Explained' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DriverWise - Clear, Plain-English Driver Guides',
+    title: 'Driver Info Hub - Clear, Plain-English Driver Guides',
     description: 'Your trusted resource for understanding device drivers, troubleshooting issues, and finding clear answers without technical complexity.',
     images: ['/assets/images/og-image.png'],
   },

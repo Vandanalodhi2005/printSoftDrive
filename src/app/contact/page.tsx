@@ -3,12 +3,12 @@ import Link from 'next/link'
 import ContactForm from '../../components/ContactForm'
 
 export const metadata: Metadata = {
-  title: 'Contact PrintSoftDrive — Questions & Topic Ideas',
-  description: 'Get in touch with PrintSoftDrive. We love reader questions, article suggestions, and feedback.',
+  title: 'Contact Driver Info Hub — Questions & Topic Ideas',
+  description: 'Get in touch with Driver Info Hub. We love reader questions, article suggestions, and feedback.',
 }
 
 const infoCards = [
-  { icon: '📧', title: 'Email Us',       body: <><a href="mailto:support@printsoftdriver.com" style={{ color: 'var(--primary)', fontWeight: 700 }}>support@printsoftdriver.com</a></> },
+  { icon: '📧', title: 'Email Us',       body: <><a href="mailto:support@driverinfohub.com" style={{ color: 'var(--primary)', fontWeight: 700 }}>support@driverinfohub.com</a></> },
   { icon: '🕒', title: 'Response Time',  body: <>We aim to reply within 2–3 working days.</> },
   { icon: '🛡️', title: 'Privacy First',  body: <>We never share your details. Your data is safe with us.</> },
 ]

@@ -1,6 +1,6 @@
-# PrintSoftDriver
+# Driver Info Hub
 
-Next.js 15 App Router TypeScript project scaffold for PrintSoftDriver.
+Next.js 15 App Router TypeScript project scaffold for Driver Info Hub.
 
 Setup:
 

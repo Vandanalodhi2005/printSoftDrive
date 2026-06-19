@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: "Graphics Drivers Explained — GPU & Display | PrintSoftDrive",
+  title: "Graphics Drivers Explained — GPU & Display | Driver Info Hub",
   description: "What a graphics driver does, why screens flicker or go black, and how a clean reinstall fixes most GPU and display problems. Plain English, no downloads.",
 }
 

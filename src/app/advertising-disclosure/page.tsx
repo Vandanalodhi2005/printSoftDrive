@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ChevronRight, DollarSign, Megaphone, Ban, Link2, BarChart2, Shield, Mail } from 'lucide-react'
 
 export const metadata = {
-  title: 'Advertising Disclosure | DriverWise',
+  title: 'Advertising Disclosure | Driver Info Hub',
   description: 'Our advertising and affiliate policy — and the deceptive formats we ban outright.',
 }
 
@@ -50,7 +50,7 @@ export default function AdvertisingDisclosurePage() {
           {/* Intro */}
           <div className="mb-12 rounded-3xl border border-blue-100 bg-blue-50 p-8">
             <p className="text-lg leading-8 text-slate-700 font-medium">
-              DriverWise is a free educational resource. To keep it free, the site may display advertising and participate in affiliate programmes. This page explains how that works and the standards we follow.
+              Driver Info Hub is a free educational resource. To keep it free, the site may display advertising and participate in affiliate programmes. This page explains how that works and the standards we follow.
             </p>
           </div>
 
@@ -63,7 +63,7 @@ export default function AdvertisingDisclosurePage() {
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900">1. How This Site Is Funded</h2>
               </div>
               <p className="leading-8 text-slate-600">
-                DriverWise may be supported by third-party advertising networks and affiliate links. We do not sell software, subscriptions, or services, and we never charge readers.
+                Driver Info Hub may be supported by third-party advertising networks and affiliate links. We do not sell software, subscriptions, or services, and we never charge readers.
               </p>
             </div>
 
@@ -136,10 +136,10 @@ export default function AdvertisingDisclosurePage() {
                 <h2 className="text-xl sm:text-2xl font-bold text-slate-900">7. Contact</h2>
               </div>
               <div className="rounded-2xl bg-slate-50 p-6 space-y-2">
-                <p className="font-bold text-slate-900">DriverWise Media LLC</p>
+                <p className="font-bold text-slate-900">Driver Info Hub Media LLC</p>
                 <p className="text-slate-600">
                   Email:{' '}
-                  <a href="mailto:hello@driverwise.com" className="text-blue-600 hover:underline">hello@driverwise.com</a>
+                  <a href="mailto:hello@driverinfohub.com" className="text-blue-600 hover:underline">hello@driverinfohub.com</a>
                   <span className="text-slate-400 ml-2 text-sm">— Subject: Advertising Inquiry</span>
                 </p>
                 <p className="text-slate-600">

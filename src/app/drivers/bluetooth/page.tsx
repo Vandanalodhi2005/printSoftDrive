@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: "Bluetooth Drivers Explained — Pairing & Fixes | PrintSoftDrive",
+  title: "Bluetooth Drivers Explained — Pairing & Fixes | Driver Info Hub",
   description: "What the Bluetooth driver and stack actually do — discovery, pairing, profiles — and the fixes for devices that won't pair, drop after sleep, or stay silent.",
 }
 

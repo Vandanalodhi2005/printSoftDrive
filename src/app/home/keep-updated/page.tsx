@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Keep Drivers Updated | PrintSoftDrive',
+  title: 'Keep Drivers Updated | Driver Info Hub',
   description: 'Why keeping drivers updated matters and how to do it safely.',
 }
 

@@ -27,9 +27,9 @@ export function Navbar() {
             </div>
             <div className="hidden sm:block">
               <h2 className="text-base sm:text-lg font-bold tracking-tight text-slate-900">
-                DriverWise
+                Driver Info Hub
               </h2>
-              <p className="text-xs text-slate-500">Printer Drivers Hub</p>
+              <p className="text-xs text-slate-500">Device Drivers Hub</p>
             </div>
           </Link>
 

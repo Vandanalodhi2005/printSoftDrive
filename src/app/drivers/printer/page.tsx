@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { ChevronRight, Settings, AlertCircle, Wrench, FileQuestion } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: "Printer Drivers Explained — Queues, 'Offline', Fixes | DriverWise",
+  title: "Printer Drivers Explained — Queues, 'Offline', Fixes | Driver Info Hub",
   description: "What a printer driver does, why printers show 'offline' or print gibberish, and the five-step routine that fixes most printing problems. Plain English, no downloads.",
 }
 

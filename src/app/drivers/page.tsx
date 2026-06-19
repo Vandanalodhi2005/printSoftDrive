@@ -5,7 +5,7 @@ import DriverDetails from '@/components/DriverDetails'
 import PageHero from '../../components/PageHero'
 
 export const metadata: Metadata = {
-  title: 'Device Drivers Explained — Every Family | PrintSoftDrive',
+  title: 'Device Drivers Explained — Every Family | Driver Info Hub',
   description: 'A plain-English map of every device driver family: printer, scanner, graphics, audio, Wi-Fi & network, Bluetooth, and USB.',
 }
 
@@ -160,7 +160,7 @@ export default function Drivers() {
         </div>
       </section>
 
-      {/* About PrintSoftDrive */}
+      {/* About Driver Info Hub */}
       <section className="block">
         <div className="container">
           <div className="split">
@@ -173,7 +173,7 @@ export default function Drivers() {
             }}>
               <Image
                 src="/website.jpg"
-                alt="About PrintSoftDrive"
+                alt="About Driver Info Hub"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 style={{ objectFit: 'cover', borderRadius: 'var(--radius-xl)' }}
@@ -183,7 +183,7 @@ export default function Drivers() {
             
             {/* Right Column: Content */}
             <div className="split-content">
-              <span className="section-kicker">About PrintSoftDrive</span>
+              <span className="section-kicker">About Driver Info Hub</span>
               <h2>A Friendly Voice in a Noisy Tech World</h2>
               <p>
                 We are a small, independent education project built around one stubborn idea — technology should not feel intimidating. Every overview on this site is written to make sense the first time you read it, whether you are a complete beginner or someone who already knows their way around a kernel debugger.
@@ -254,4 +254,5 @@ export default function Drivers() {
       </section>
     </>
   )
+
 }

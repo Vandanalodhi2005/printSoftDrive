@@ -5,7 +5,7 @@ import ThemeIcon from '../../components/ThemeIcon'
 import PageHero from '../../components/PageHero'
 
 export const metadata: Metadata = {
-  title: 'Driver Troubleshooting Knowledge Base | PrintSoftDrive',
+  title: 'Driver Troubleshooting Knowledge Base | Driver Info Hub',
   description: 'A calm, ordered walkthrough for common driver problems. Start with four universal fixes, then find your symptom and follow a clear, jargon-free routine.',
 }
 

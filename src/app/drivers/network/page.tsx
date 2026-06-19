@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: "Wi-Fi & Network Drivers Explained | PrintSoftDrive",
+  title: "Wi-Fi & Network Drivers Explained | Driver Info Hub",
   description: "Network drivers connect your PC to the internet. Learn what they do and how to fix dropping Wi-Fi, slow speeds, and connections that won't wake from sleep.",
 }
 

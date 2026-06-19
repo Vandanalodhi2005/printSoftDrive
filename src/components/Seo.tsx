@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 export default function Seo({ title, description, url, image }: { title?: string; description?: string; url?: string; image?: string }){
-  const metaTitle = title || 'PrintSoftDriver'
+  const metaTitle = title || 'Driver Info Hub'
   const metaDesc = description || 'Download drivers and read guides.'
   return (
     <Head>

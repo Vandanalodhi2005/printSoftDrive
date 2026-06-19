@@ -14,10 +14,10 @@ export default function Footer() {
 
         {/* Col 1 — Brand */}
         <div className="ftr__brand">
-          <Link href="/" className="ftr__logo-wrap" aria-label="PrintSoftDrive home">
+          <Link href="/" className="ftr__logo-wrap" aria-label="Driver Info Hub home">
             <Image
-              src="/logo.jpg"
-              alt="PrintSoftDrive"
+              src="/logo.png"
+              alt="Driver Info Hub"
               width={160}
               height={32}
               style={{ height: '32px', width: 'auto' }}
@@ -78,13 +78,13 @@ export default function Footer() {
           </p>
           <div className="ftr__touch-item">
             <span className="ftr__touch-label">EMAIL</span>
-            <a href="mailto:support@printsoftdrive.com" className="ftr__touch-value">
-              support@printsoftdrive.com
+            <a href="mailto:support@driverinfohub.com" className="ftr__touch-value">
+              support@driverinfohub.com
             </a>
           </div>
           <div className="ftr__touch-item">
             <span className="ftr__touch-label">ADDRESS</span>
-            <span className="ftr__touch-value ftr__touch-value--muted">United States</span>
+            <span className="ftr__touch-value ftr__touch-value--muted">95 Broadacre Dr, Kitchener, ON N2R 0S5, Canada</span>
           </div>
         </div>
 
@@ -94,7 +94,7 @@ export default function Footer() {
       <div className="ftr__disclaimer-band">
         <div className="container">
           <p className="ftr__disclaimer-text">
-            <strong>Disclaimer:</strong> PrintSoftDrive is an independent educational resource designed to help users
+            <strong>Disclaimer:</strong> Driver Info Hub is an independent educational resource designed to help users
             understand printer drivers, setup procedures, compatibility, and troubleshooting methods.
             Content is provided for informational purposes only and does not represent any printer manufacturer,
             hardware vendor, or software publisher.
@@ -104,7 +104,7 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="container ftr__bottom">
-        <p className="ftr__copy">© {year} PrintSoftDrive. All rights reserved.</p>
+        <p className="ftr__copy">© {year} Driver Info Hub. All rights reserved.</p>
         <nav className="ftr__bottom-nav" aria-label="Legal footer links">
           <Link href="/privacy/"                className="ftr__bottom-link">Privacy Policy</Link>
           <Link href="/terms/"                  className="ftr__bottom-link">Terms</Link>
